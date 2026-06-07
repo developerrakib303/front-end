@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Haya BD | haya-bd.com</title>
+  <meta name="description" content="Responsive fashion ecommerce homepage for Haya BD at haya-bd.com." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <div class="preloader" aria-hidden="true">
+    <div class="preloader-logo">Haya BD</div>
+  </div>
+
+  <header class="site-header">
+    <div class="topbar">
+      <div class="container topbar-inner">
+        <p class="topbar-note"><i class="fa-solid fa-truck-fast" aria-hidden="true"></i> Free delivery on orders over Tk
+          2,000 &nbsp;</p>
+        <nav class="topbar-links" aria-label="Utility navigation">
+          <a href="#"><i class="fa-regular fa-user" aria-hidden="true"></i> log in</a>
+          <a href="#">about us</a>
+          <a href="#">blog</a>
+          <a href="#">track order</a>
+          <a href="#">compare (0)</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <header class="sticky-shop-header">
+    <div class="mainbar">
+      <div class="container mainbar-grid">
+        <button class="icon-button menu-toggle" type="button" aria-label="Open menu">
+          <i class="fa-solid fa-bars" aria-hidden="true"></i>
+        </button>
+
+        <a class="brand" href="#" aria-label="Haya BD home">
+          <span class="brand-word">HAYA</span>
+          <span class="brand-mark" aria-hidden="true"></span>
+        </a>
+
+        <form class="search-form" role="search">
+          <label class="search-field">
+            <span class="search-field-icon"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></span>
+            <input type="search" placeholder="Search products, brands and categories..." aria-label="Search products" />
+          </label>
+          <label class="category-field">
+            <span class="visually-hidden">Choose category</span>
+            <select aria-label="Choose category">
+              <option>categories</option>
+              <option>men</option>
+              <option>women</option>
+              <option>kids</option>
+              <option>accessories</option>
+            </select>
+          </label>
+          <button class="search-submit" type="submit" aria-label="Search">
+            <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+          </button>
+        </form>
+
+        <div class="header-actions">
+          <button class="icon-button mobile-search-toggle" type="button" aria-label="Open search">
+            <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+          </button>
+
+          <a class="support" href="tel:+8809606666777" aria-label="Call us now 09606 666 777">
+            <span class="support-icon"><i class="fa-solid fa-headset" aria-hidden="true"></i></span>
+            <span class="support-text">
+              <small>call us now</small>
+              <strong>09606 666 777</strong>
+            </span>
+          </a>
+
+          <a class="action-btn" href="#" aria-label="My account">
+            <i class="fa-regular fa-user" aria-hidden="true"></i>
+          </a>
+          <a class="action-btn" href="#" aria-label="Wishlist">
+            <i class="fa-regular fa-heart" aria-hidden="true"></i>
+            <span class="action-badge">0</span>
+          </a>
+          <a class="action-btn" href="#" aria-label="Cart">
+            <i class="fa-solid fa-bag-shopping" aria-hidden="true"></i>
+            <span class="action-badge">0</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <nav class="category-nav" aria-label="Main categories">
+      <div class="container category-scroll">
+        <a href="#" class="is-active">men</a>
+        <a href="#">women</a>
+        <a href="#">kids</a>
+        <a href="#">ethnic</a>
+        <a href="#">new arrival</a>
+        <a href="#">fragrance</a>
+        <a href="#">accessories</a>
+        <a href="#" class="cat-sale">sale</a>
+      </div>
+    </nav>
+  </header>
+
+  <aside class="mobile-drawer" aria-hidden="true">
+    <div class="drawer-panel">
+      <div class="drawer-head">
+        <span class="brand-word">HAYA</span>
+        <button class="icon-button drawer-close" type="button" aria-label="Close menu">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <nav aria-label="Mobile menu">
+        <a href="#">About Us</a>
+        <a href="#">Blog</a>
+        <button class="drawer-accordion" type="button">
+          Men <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="drawer-links">
+          <a href="#">Casual Shirt</a>
+          <a href="#">Panjabi</a>
+          <a href="#">T-Shirt</a>
+        </div>
+        <button class="drawer-accordion" type="button">
+          Women <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="drawer-links">
+          <a href="#">Kurti</a>
+          <a href="#">Saree</a>
+          <a href="#">Tops</a>
+        </div>
+        <button class="drawer-accordion" type="button">
+          Kids <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="drawer-links">
+          <a href="#">Boys</a>
+          <a href="#">Girls</a>
+          <a href="#">Newborn</a>
+        </div>
+      </nav>
+    </div>
+  </aside>
+
+  <div class="search-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Search box">
+    <div class="search-dialog">
+      <div class="dialog-head">
+        <h2>Search Our Store</h2>
+        <button class="icon-button search-close" type="button" aria-label="Close search">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <form class="modal-search-form">
+        <label class="modal-field">
+          <span><i class="fa-solid fa-magnifying-glass"></i></span>
+          <input type="search" placeholder="Search products, categories..." aria-label="Search products" />
+        </label>
+        <div class="search-suggest" aria-label="Popular searches">
+          <span class="suggest-label">Popular</span>
+          <button type="button" class="suggest-chip">Panjabi</button>
+          <button type="button" class="suggest-chip">Saree</button>
+          <button type="button" class="suggest-chip">Kurti</button>
+          <button type="button" class="suggest-chip">Kids</button>
+          <button type="button" class="suggest-chip">Fragrance</button>
+        </div>
+        <label class="modal-field">
+          <span><i class="fa-solid fa-table-cells-large"></i></span>
+          <select aria-label="Choose category">
+            <option>categories</option>
+            <option>men</option>
+            <option>women</option>
+            <option>kids</option>
+          </select>
+        </label>
+        <button class="primary-button" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="quickview-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="qv-title">
+    <div class="quickview-dialog">
+      <div class="qv-head">
+        <span class="qv-head-label">Quick view</span>
+        <button class="icon-button quickview-close" type="button" aria-label="Close quick view">
+          <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+        </button>
+      </div>
+
+      <div class="qv-body">
+        <div class="qv-media">
+          <span class="qv-discount" hidden></span>
+          <img class="qv-image" src="" alt="" width="600" height="870" />
+        </div>
+
+        <div class="qv-info">
+          <p class="qv-cat" id="qv-cat"></p>
+          <h2 class="qv-title" id="qv-title"></h2>
+
+          <div class="qv-price">
+            <span class="qv-price-now" id="qv-price-now"></span>
+            <span class="qv-price-was" id="qv-price-was" hidden></span>
+          </div>
+
+          <p class="qv-desc">A signature Haya BD piece — soft, durable fabric with a tailored fit, finished for everyday
+            comfort and a premium look.</p>
+
+          <div class="qv-field qv-color-field" hidden>
+            <span class="qv-field-label" id="qv-color-label">Color</span>
+            <div class="qv-colors" role="group" aria-labelledby="qv-color-label"></div>
+          </div>
+
+          <div class="qv-field">
+            <span class="qv-field-label" id="qv-size-label">Size</span>
+            <div class="qv-sizes" role="radiogroup" aria-labelledby="qv-size-label">
+              <button type="button" class="qv-size" role="radio" aria-checked="false">S</button>
+              <button type="button" class="qv-size" role="radio" aria-checked="true">M</button>
+              <button type="button" class="qv-size" role="radio" aria-checked="false">L</button>
+              <button type="button" class="qv-size" role="radio" aria-checked="false">XL</button>
+            </div>
+          </div>
+
+          <div class="qv-field qv-qty-field">
+            <span class="qv-field-label" id="qv-qty-label">Quantity</span>
+            <div class="qv-qty" role="group" aria-labelledby="qv-qty-label">
+              <button type="button" class="qv-qty-btn qv-qty-minus" aria-label="Decrease quantity">
+                <i class="fa-solid fa-minus" aria-hidden="true"></i>
+              </button>
+              <span class="qv-qty-value" aria-live="polite">1</span>
+              <button type="button" class="qv-qty-btn qv-qty-plus" aria-label="Increase quantity">
+                <i class="fa-solid fa-plus" aria-hidden="true"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="qv-actions">
+            <button type="button" class="qv-add-cart">
+              <i class="fa-solid fa-bag-shopping" aria-hidden="true"></i> Add to cart
+            </button>
+            <button type="button" class="qv-wishlist" aria-pressed="false" aria-label="Add to wishlist">
+              <i class="fa-regular fa-heart" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <section class="hero-slider" aria-label="Featured campaign">
+      <div class="hero-track">
+        <a class="hero-slide active" href="#">
+          <img
+            src="https://objectstorage.ap-singapore-1.oraclecloud.com/n/aximxvolvk6d/b/sailorbucket/o/uploads/all/dQOVgjP6nZIIOcc9H7ArmB49ep1TGgBHN8qNQjoZ.jpg"
+            alt="Fashion campaign banner" />
+        </a>
+        <a class="hero-slide" href="#">
+          <img
+            src="https://objectstorage.ap-singapore-1.oraclecloud.com/n/aximxvolvk6d/b/sailorbucket/o/uploads/all/dQOVgjP6nZIIOcc9H7ArmB49ep1TGgBHN8qNQjoZ.jpg"
+            alt="Menswear campaign banner" />
+        </a>
+        <a class="hero-slide" href="#">
+          <img
+            src="https://objectstorage.ap-singapore-1.oraclecloud.com/n/aximxvolvk6d/b/sailorbucket/o/uploads/all/dQOVgjP6nZIIOcc9H7ArmB49ep1TGgBHN8qNQjoZ.jpg"
+            alt="Womenswear campaign banner" />
+        </a>
+      </div>
+      <button class="slider-arrow prev" type="button" aria-label="Previous campaign">
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+      <button class="slider-arrow next" type="button" aria-label="Next campaign">
+        <i class="fa-solid fa-chevron-right"></i>
+      </button>
+      <div class="slider-dots" aria-label="Campaign pagination"></div>
+    </section>
+
+    <section class="offer-banner">
+      <div class="container-fluid">
+        <div class="split-banner-grid">
+          <a href="#" class="promo-tile">
+            <img
+              src="https://objectstorage.ap-singapore-1.oraclecloud.com/n/aximxvolvk6d/b/sailorbucket/o/uploads/all/As8B6wzeT0FK4mE28XVcFWXUCRfFkzd3XtA73U2S.jpg"
+              alt="Men collection" />
+          </a>
+          <a href="#" class="promo-tile">
+            <img
+              src="https://objectstorage.ap-singapore-1.oraclecloud.com/n/aximxvolvk6d/b/sailorbucket/o/uploads/all/ICqUQofEKJMyMTz1ImoXIUCTq6fnGXVqaucU4RUX.jpg"
+              alt="Women collection" />
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="category-section">
+      <div class="container-fluid">
+        <div class="section-title">
+          <h2>Trending Categories</h2>
+        </div>
+        <div class="category-carousel">
+          <button class="category-arrow category-prev" type="button" aria-label="Previous categories">
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+          <div class="category-card-grid" tabindex="0" aria-label="Trending category slider">
+            <a class="category-card" href="#" aria-label="Shop men collection">
+              <img
+                src="https://objectstorage.ap-singapore-1.oraclecloud.com/n/aximxvolvk6d/b/sailorbucket/o/uploads/all/DBQ2ZG2ur76SnuC2Yq2jHcHBTUcGmPG9SrnTiIxz.jpg"
+                alt="Men collection" />
+              <span class="category-content">
+                <small>Haya BD</small>
+                <strong>Men</strong>
+                <span>Shop now <i class="fa-solid fa-arrow-right"></i></span>
+              </span>
+            </a>
+            <a class="category-card" href="#" aria-label="Shop women collection">
+              <img
+                src="https://objectstorage.ap-singapore-1.oraclecloud.com/n/aximxvolvk6d/b/sailorbucket/o/uploads/all/uiCCsqwm7XKNebP246uAqD29IQy8fLnHTzuNZnZp.jpg"
+                alt="Women collection" />
+              <span class="category-content">
+                <small>Haya BD</small>
+                <strong>Women</strong>
+                <span>Shop now <i class="fa-solid fa-arrow-right"></i></span>
+              </span>
+            </a>
+            <a class="category-card" href="#" aria-label="Shop kids collection">
+              <img
+                src="https://objectstorage.ap-singapore-1.oraclecloud.com/n/aximxvolvk6d/b/sailorbucket/o/uploads/all/G8e0Q646OIebnDtBygoJl3o0piznF9tAJZiC6WMI.jpg"
+                alt="Kids collection" />
+              <span class="category-content">
+                <small>Haya BD</small>
+                <strong>Kids</strong>
+                <span>Shop now <i class="fa-solid fa-arrow-right"></i></span>
+              </span>
+            </a>
+            <a class="category-card" href="#" aria-label="Shop newborn collection">
+              <img
+                src="https://objectstorage.ap-singapore-1.oraclecloud.com/n/aximxvolvk6d/b/sailorbucket/o/uploads/all/Mz36X7Vcevr97nI72TCew7DsNfTxV148UzDvomv0.png"
+                alt="Newborn collection" />
+              <span class="category-content">
+                <small>Haya BD</small>
+                <strong>Newborn</strong>
+                <span>Shop now <i class="fa-solid fa-arrow-right"></i></span>
+              </span>
+            </a>
+            <a class="category-card" href="#" aria-label="Shop ethnic collection">
+              <img
+                src="https://objectstorage.ap-singapore-1.oraclecloud.com/n/aximxvolvk6d/b/sailorbucket/o/uploads/all/h4rbBh05r1KLSBoZqDNHCYQUwuV5hLdn3y06qprx.png"
+                alt="Ethnic collection" />
+              <span class="category-content">
+                <small>Haya BD</small>
+                <strong>Ethnic</strong>
+                <span>Shop now <i class="fa-solid fa-arrow-right"></i></span>
+              </span>
+            </a>
+            <a class="category-card" href="#" aria-label="Shop accessories collection">
+              <img
+                src="https://objectstorage.ap-singapore-1.oraclecloud.com/n/aximxvolvk6d/b/sailorbucket/o/uploads/all/JoMy8lQaVLP0JOTh9MDQbzsxawfbrxp9e5igZJ2L.jpg"
+                alt="Accessories collection" />
+              <span class="category-content">
+                <small>Haya BD</small>
+                <strong>Accessories</strong>
+                <span>Shop now <i class="fa-solid fa-arrow-right"></i></span>
+              </span>
+            </a>
+            <a class="category-card" href="#" aria-label="Shop fragrance collection">
+              <img
+                src="https://objectstorage.ap-singapore-1.oraclecloud.com/n/aximxvolvk6d/b/sailorbucket/o/uploads/all/CsYwE3XwjPOyvNgaKGsjhkef81S3K1mB44D5Xkol.jpg"
+                alt="Fragrance collection" />
+              <span class="category-content">
+                <small>Haya BD</small>
+                <strong>Fragrance</strong>
+                <span>Shop now <i class="fa-solid fa-arrow-right"></i></span>
+              </span>
+            </a>
+          </div>
+          <button class="category-arrow category-next" type="button" aria-label="Next categories">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="new-arrivals" id="new-arrivals" aria-labelledby="na-heading">
+      <div class="container-fluid">
+        <div class="section-title with-tabs">
+          <div class="section-heading">
+            <span class="section-eyebrow">Just landed</span>
+            <h2 id="na-heading">New Arrivals</h2>
+          </div>
+          <div class="tabs has-indicator" role="tablist" aria-label="New arrival categories">
+            <button class="tab active" type="button" role="tab" id="tab-all" aria-selected="true"
+              aria-controls="na-grid" tabindex="0" data-filter="all">All</button>
+            <button class="tab" type="button" role="tab" id="tab-men" aria-selected="false" aria-controls="na-grid"
+              tabindex="-1" data-filter="men">Men</button>
+            <button class="tab" type="button" role="tab" id="tab-women" aria-selected="false" aria-controls="na-grid"
+              tabindex="-1" data-filter="women">Women</button>
+            <button class="tab" type="button" role="tab" id="tab-kids" aria-selected="false" aria-controls="na-grid"
+              tabindex="-1" data-filter="kids">Kids</button>
+            <span class="tab-indicator" aria-hidden="true"></span>
+          </div>
+          <a class="section-viewall" href="#">View all <i class="fa-solid fa-arrow-right-long"
+              aria-hidden="true"></i></a>
+        </div>
+
+        <p class="result-count visually-hidden" role="status" aria-live="polite"></p>
+
+        <div class="product-grid" id="na-grid" role="tabpanel" aria-labelledby="tab-all" tabindex="0">
+          <article class="product-card" data-category="women">
+            <div class="product-image">
+              <span class="product-badge badge-new">New</span>
+              <img
+                src="https://objectstorage.ap-singapore-1.oraclecloud.com/n/aximxvolvk6d/b/sailorbucket/o/uploads/all/uiCCsqwm7XKNebP246uAqD29IQy8fLnHTzuNZnZp.jpg"
+                alt="Cream and teal woven kurti for girls" width="600" height="870" loading="lazy" decoding="async" />
+              <div class="quick-actions">
+                <button type="button" class="qa-btn wishlist" aria-pressed="false"
+                  aria-label="Add Girls Woven Kurti to wishlist"><i class="fa-regular fa-heart"
+                    aria-hidden="true"></i></button>
+                <button type="button" class="qa-btn quickview" aria-label="Quick view Girls Woven Kurti"><i
+                    class="fa-regular fa-eye" aria-hidden="true"></i></button>
+                <button type="button" class="qa-btn compare" aria-label="Compare Girls Woven Kurti"><i
+                    class="fa-solid fa-code-compare" aria-hidden="true"></i></button>
+              </div>
+              <button class="add-cart-button" type="button"><i class="fa-solid fa-bag-shopping" aria-hidden="true"></i>
+                Add to cart<span class="visually-hidden"> — Girls Woven Kurti</span></button>
+            </div>
+            <div class="product-info">
+              <div class="product-meta">
+                <span class="meta-cat">Women</span>
+              </div>
+              <h3><a href="#">Girls Woven Kurti</a></h3>
+              <div class="price"><span class="price-now">Tk 1,975</span></div>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="kids">
+            <div class="product-image">
+              <span class="product-badge badge-new">New</span>
+              <img
+                src="https://objectstorage.ap-singapore-1.oraclecloud.com/n/aximxvolvk6d/b/sailorbucket/o/uploads/all/G8e0Q646OIebnDtBygoJl3o0piznF9tAJZiC6WMI.jpg"
+                alt="White and beige twin-set top for boys" width="600" height="870" loading="lazy" decoding="async" />
+              <div class="quick-actions">
+                <button type="button" class="qa-btn wishlist" aria-pressed="false"
+                  aria-label="Add Boys Twin Top to wishlist"><i class="fa-regular fa-heart"
+                    aria-hidden="true"></i></button>
+                <button type="button" class="qa-btn quickview" aria-label="Quick view Boys Twin Top"><i
+                    class="fa-regular fa-eye" aria-hidden="true"></i></button>
+                <button type="button" class="qa-btn compare" aria-label="Compare Boys Twin Top"><i
+                    class="fa-solid fa-code-compare" aria-hidden="true"></i></button>
+              </div>
+              <button class="add-cart-button" type="button"><i class="fa-solid fa-bag-shopping" aria-hidden="true"></i>
+                Add to cart<span class="visually-hidden"> — Boys Twin Top</span></button>
+            </div>
+            <div class="product-info">
+              <div class="product-meta">
+                <span class="meta-cat">Kids</span>
+              </div>
+              <h3><a href="#">Boys Twin Top</a></h3>
+              <div class="price"><span class="price-now">Tk 1,665</span></div>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="kids">
+            <div class="product-image">
+              <span class="product-badge badge-new">New</span>
+              <img
+                src="https://objectstorage.ap-singapore-1.oraclecloud.com/n/aximxvolvk6d/b/sailorbucket/o/uploads/all/Lqvh1S8D25fkQXKxzaTKEo07p9V4wdVJR2JrQMWQ.jpg"
+                alt="Printed casual shirt for boys" width="600" height="870" loading="lazy" decoding="async" />
+              <div class="quick-actions">
+                <button type="button" class="qa-btn wishlist" aria-pressed="false"
+                  aria-label="Add Boys Casual Shirt to wishlist"><i class="fa-regular fa-heart"
+                    aria-hidden="true"></i></button>
+                <button type="button" class="qa-btn quickview" aria-label="Quick view Boys Casual Shirt"><i
+                    class="fa-regular fa-eye" aria-hidden="true"></i></button>
+                <button type="button" class="qa-btn compare" aria-label="Compare Boys Casual Shirt"><i
+                    class="fa-solid fa-code-compare" aria-hidden="true"></i></button>
+              </div>
+              <button class="add-cart-button" type="button"><i class="fa-solid fa-bag-shopping" aria-hidden="true"></i>
+                Add to cart<span class="visually-hidden"> — Boys Casual Shirt</span></button>
+            </div>
+            <div class="product-info">
+              <div class="product-meta">
+                <span class="meta-cat">Kids</span>
+              </div>
+              <h3><a href="#">Boys Casual Shirt</a></h3>
+              <div class="price"><span class="price-now">Tk 1,440</span></div>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="women">
+            <div class="product-image">
+              <span class="product-badge badge-new">New</span>
+              <img
+                src="https://objectstorage.ap-singapore-1.oraclecloud.com/n/aximxvolvk6d/b/sailorbucket/o/uploads/all/x5MJgRzru2A8K5WcACo2SJ39aU01GlyGf0wgSDCN.png"
+                alt="Green and lemon woven frock for girls" width="600" height="870" loading="lazy" decoding="async" />
+              <div class="quick-actions">
+                <button type="button" class="qa-btn wishlist" aria-pressed="false"
+                  aria-label="Add Girls Woven Frock to wishlist"><i class="fa-regular fa-heart"
+                    aria-hidden="true"></i></button>
+                <button type="button" class="qa-btn quickview" aria-label="Quick view Girls Woven Frock"><i
+                    class="fa-regular fa-eye" aria-hidden="true"></i></button>
+                <button type="button" class="qa-btn compare" aria-label="Compare Girls Woven Frock"><i
+                    class="fa-solid fa-code-compare" aria-hidden="true"></i></button>
+              </div>
+              <button class="add-cart-button" type="button"><i class="fa-solid fa-bag-shopping" aria-hidden="true"></i>
+                Add to cart<span class="visually-hidden"> — Girls Woven Frock</span></button>
+            </div>
+            <div class="product-info">
+              <div class="product-meta">
+                <span class="meta-cat">Women</span>
+              </div>
+              <h3><a href="#">Girls Woven Frock</a></h3>
+              <div class="price"><span class="price-now">Tk 1,450</span></div>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="kids">
+            <div class="product-image">
+              <span class="product-badge badge-new">New</span>
+              <img
+                src="https://objectstorage.ap-singapore-1.oraclecloud.com/n/aximxvolvk6d/b/sailorbucket/o/uploads/all/JoMy8lQaVLP0JOTh9MDQbzsxawfbrxp9e5igZJ2L.jpg"
+                alt="Yellow woven frock for girls" width="600" height="870" loading="lazy" decoding="async" />
+              <div class="quick-actions">
+                <button type="button" class="qa-btn wishlist" aria-pressed="false"
+                  aria-label="Add Girls Woven Frock to wishlist"><i class="fa-regular fa-heart"
+                    aria-hidden="true"></i></button>
+                <button type="button" class="qa-btn quickview" aria-label="Quick view Girls Woven Frock"><i
+                    class="fa-regular fa-eye" aria-hidden="true"></i></button>
+                <button type="button" class="qa-btn compare" aria-label="Compare Girls Woven Frock"><i
+                    class="fa-solid fa-code-compare" aria-hidden="true"></i></button>
+              </div>
+              <button class="add-cart-button" type="button"><i class="fa-solid fa-bag-shopping" aria-hidden="true"></i>
+                Add to cart<span class="visually-hidden"> — Girls Woven Frock</span></button>
+            </div>
+            <div class="product-info">
+              <div class="product-meta">
+                <span class="meta-cat">Kids</span>
+              </div>
+              <h3><a href="#">Girls Woven Frock</a></h3>
+              <div class="price"><span class="price-now">Tk 900</span></div>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="men">
+            <div class="product-image">
+              <span class="product-badge badge-new">New</span>
+              <img
+                src="https://objectstorage.ap-singapore-1.oraclecloud.com/n/aximxvolvk6d/b/sailorbucket/o/uploads/all/DBQ2ZG2ur76SnuC2Yq2jHcHBTUcGmPG9SrnTiIxz.jpg"
+                alt="Olive green Kabli suit for boys" width="600" height="870" loading="lazy" decoding="async" />
+              <div class="quick-actions">
+                <button type="button" class="qa-btn wishlist" aria-pressed="false"
+                  aria-label="Add Boys Kabli Suit to wishlist"><i class="fa-regular fa-heart"
+                    aria-hidden="true"></i></button>
+                <button type="button" class="qa-btn quickview" aria-label="Quick view Boys Kabli Suit"><i
+                    class="fa-regular fa-eye" aria-hidden="true"></i></button>
+                <button type="button" class="qa-btn compare" aria-label="Compare Boys Kabli Suit"><i
+                    class="fa-solid fa-code-compare" aria-hidden="true"></i></button>
+              </div>
+              <button class="add-cart-button" type="button"><i class="fa-solid fa-bag-shopping" aria-hidden="true"></i>
+                Add to cart<span class="visually-hidden"> — Boys Kabli Suit</span></button>
+            </div>
+            <div class="product-info">
+              <div class="product-meta">
+                <span class="meta-cat">Men</span>
+              </div>
+              <h3><a href="#">Boys Kabli Suit</a></h3>
+              <div class="price"><span class="price-now">Tk 2,390</span></div>
+            </div>
+          </article>
+        </div>
+
+        <div class="empty-state" hidden>
+          <i class="fa-regular fa-face-frown" aria-hidden="true"></i>
+          <p>No new arrivals in this category yet.</p>
+          <button type="button" class="empty-reset">Show all</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="flash-sale" id="flash-sale" aria-labelledby="fs-heading">
+      <div class="container-fluid">
+        <div class="section-title with-tabs fs-header">
+          <div class="section-heading">
+            <span class="section-eyebrow fs-eyebrow"><i class="fa-solid fa-bolt" aria-hidden="true"></i> Limited
+              time</span>
+            <h2 id="fs-heading"><span class="fs-icon" aria-hidden="true"><i class="fa-solid fa-bolt"></i></span> Flash
+              Sale</h2>
+          </div>
+          <a class="section-viewall" href="#">View all <i class="fa-solid fa-arrow-right-long"
+              aria-hidden="true"></i></a>
+        </div>
+
+        <div class="product-grid" id="fs-grid">
+          <article class="product-card">
+            <div class="product-image">
+              <span class="product-badge badge-sale">-30%</span>
+              <img
+                src="https://objectstorage.ap-singapore-1.oraclecloud.com/n/aximxvolvk6d/b/sailorbucket/o/uploads/all/uiCCsqwm7XKNebP246uAqD29IQy8fLnHTzuNZnZp.jpg"
+                alt="Cream and teal woven kurti for girls on sale" width="600" height="870" loading="lazy"
+                decoding="async" />
+              <div class="quick-actions">
+                <button type="button" class="qa-btn wishlist" aria-pressed="false"
+                  aria-label="Add Girls Woven Kurti to wishlist"><i class="fa-regular fa-heart"
+                    aria-hidden="true"></i></button>
+                <button type="button" class="qa-btn quickview" aria-label="Quick view Girls Woven Kurti"><i
+                    class="fa-regular fa-eye" aria-hidden="true"></i></button>
+                <button type="button" class="qa-btn compare" aria-label="Compare Girls Woven Kurti"><i
+                    class="fa-solid fa-code-compare" aria-hidden="true"></i></button>
+              </div>
+              <button class="add-cart-button" type="button"><i class="fa-solid fa-bag-shopping" aria-hidden="true"></i>
+                Add to cart<span class="visually-hidden"> — Girls Woven Kurti</span></button>
+            </div>
+            <div class="product-info">
+              <div class="product-meta">
+                <span class="meta-cat">Women</span>
+              </div>
+              <h3><a href="#">Girls Woven Kurti</a></h3>
+              <div class="price">
+                <span class="price-now is-sale">Tk 1,383</span>
+                <span class="price-was">Tk 1,975</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image">
+              <span class="product-badge badge-sale">-25%</span>
+              <img
+                src="https://objectstorage.ap-singapore-1.oraclecloud.com/n/aximxvolvk6d/b/sailorbucket/o/uploads/all/G8e0Q646OIebnDtBygoJl3o0piznF9tAJZiC6WMI.jpg"
+                alt="White and beige twin-set top for boys on sale" width="600" height="870" loading="lazy"
+                decoding="async" />
+              <div class="quick-actions">
+                <button type="button" class="qa-btn wishlist" aria-pressed="false"
+                  aria-label="Add Boys Twin Top to wishlist"><i class="fa-regular fa-heart"
+                    aria-hidden="true"></i></button>
+                <button type="button" class="qa-btn quickview" aria-label="Quick view Boys Twin Top"><i
+                    class="fa-regular fa-eye" aria-hidden="true"></i></button>
+                <button type="button" class="qa-btn compare" aria-label="Compare Boys Twin Top"><i
+                    class="fa-solid fa-code-compare" aria-hidden="true"></i></button>
+              </div>
+              <button class="add-cart-button" type="button"><i class="fa-solid fa-bag-shopping" aria-hidden="true"></i>
+                Add to cart<span class="visually-hidden"> — Boys Twin Top</span></button>
+            </div>
+            <div class="product-info">
+              <div class="product-meta">
+                <span class="meta-cat">Kids</span>
+              </div>
+              <h3><a href="#">Boys Twin Top</a></h3>
+              <div class="price">
+                <span class="price-now is-sale">Tk 1,249</span>
+                <span class="price-was">Tk 1,665</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image">
+              <span class="product-badge badge-sale">-40%</span>
+              <img
+                src="https://objectstorage.ap-singapore-1.oraclecloud.com/n/aximxvolvk6d/b/sailorbucket/o/uploads/all/Lqvh1S8D25fkQXKxzaTKEo07p9V4wdVJR2JrQMWQ.jpg"
+                alt="Printed casual shirt for boys on sale" width="600" height="870" loading="lazy" decoding="async" />
+              <div class="quick-actions">
+                <button type="button" class="qa-btn wishlist" aria-pressed="false"
+                  aria-label="Add Boys Casual Shirt to wishlist"><i class="fa-regular fa-heart"
+                    aria-hidden="true"></i></button>
+                <button type="button" class="qa-btn quickview" aria-label="Quick view Boys Casual Shirt"><i
+                    class="fa-regular fa-eye" aria-hidden="true"></i></button>
+                <button type="button" class="qa-btn compare" aria-label="Compare Boys Casual Shirt"><i
+                    class="fa-solid fa-code-compare" aria-hidden="true"></i></button>
+              </div>
+              <button class="add-cart-button" type="button"><i class="fa-solid fa-bag-shopping" aria-hidden="true"></i>
+                Add to cart<span class="visually-hidden"> — Boys Casual Shirt</span></button>
+            </div>
+            <div class="product-info">
+              <div class="product-meta">
+                <span class="meta-cat">Kids</span>
+              </div>
+              <h3><a href="#">Boys Casual Shirt</a></h3>
+              <div class="price">
+                <span class="price-now is-sale">Tk 864</span>
+                <span class="price-was">Tk 1,440</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image">
+              <span class="product-badge badge-sale">-35%</span>
+              <img
+                src="https://objectstorage.ap-singapore-1.oraclecloud.com/n/aximxvolvk6d/b/sailorbucket/o/uploads/all/x5MJgRzru2A8K5WcACo2SJ39aU01GlyGf0wgSDCN.png"
+                alt="Green and lemon woven frock for girls on sale" width="600" height="870" loading="lazy"
+                decoding="async" />
+              <div class="quick-actions">
+                <button type="button" class="qa-btn wishlist" aria-pressed="false"
+                  aria-label="Add Girls Woven Frock to wishlist"><i class="fa-regular fa-heart"
+                    aria-hidden="true"></i></button>
+                <button type="button" class="qa-btn quickview" aria-label="Quick view Girls Woven Frock"><i
+                    class="fa-regular fa-eye" aria-hidden="true"></i></button>
+                <button type="button" class="qa-btn compare" aria-label="Compare Girls Woven Frock"><i
+                    class="fa-solid fa-code-compare" aria-hidden="true"></i></button>
+              </div>
+              <button class="add-cart-button" type="button"><i class="fa-solid fa-bag-shopping" aria-hidden="true"></i>
+                Add to cart<span class="visually-hidden"> — Girls Woven Frock</span></button>
+            </div>
+            <div class="product-info">
+              <div class="product-meta">
+                <span class="meta-cat">Women</span>
+              </div>
+              <h3><a href="#">Girls Woven Frock</a></h3>
+              <div class="price">
+                <span class="price-now is-sale">Tk 943</span>
+                <span class="price-was">Tk 1,450</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image">
+              <span class="product-badge badge-sale">-50%</span>
+              <img
+                src="https://objectstorage.ap-singapore-1.oraclecloud.com/n/aximxvolvk6d/b/sailorbucket/o/uploads/all/JoMy8lQaVLP0JOTh9MDQbzsxawfbrxp9e5igZJ2L.jpg"
+                alt="Yellow woven frock for girls on sale" width="600" height="870" loading="lazy" decoding="async" />
+              <div class="quick-actions">
+                <button type="button" class="qa-btn wishlist" aria-pressed="false"
+                  aria-label="Add Girls Woven Frock to wishlist"><i class="fa-regular fa-heart"
+                    aria-hidden="true"></i></button>
+                <button type="button" class="qa-btn quickview" aria-label="Quick view Girls Woven Frock"><i
+                    class="fa-regular fa-eye" aria-hidden="true"></i></button>
+                <button type="button" class="qa-btn compare" aria-label="Compare Girls Woven Frock"><i
+                    class="fa-solid fa-code-compare" aria-hidden="true"></i></button>
+              </div>
+              <button class="add-cart-button" type="button"><i class="fa-solid fa-bag-shopping" aria-hidden="true"></i>
+                Add to cart<span class="visually-hidden"> — Girls Woven Frock</span></button>
+            </div>
+            <div class="product-info">
+              <div class="product-meta">
+                <span class="meta-cat">Kids</span>
+              </div>
+              <h3><a href="#">Girls Woven Frock</a></h3>
+              <div class="price">
+                <span class="price-now is-sale">Tk 450</span>
+                <span class="price-was">Tk 900</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image">
+              <span class="product-badge badge-sale">-30%</span>
+              <img
+                src="https://objectstorage.ap-singapore-1.oraclecloud.com/n/aximxvolvk6d/b/sailorbucket/o/uploads/all/DBQ2ZG2ur76SnuC2Yq2jHcHBTUcGmPG9SrnTiIxz.jpg"
+                alt="Olive green Kabli suit for boys on sale" width="600" height="870" loading="lazy"
+                decoding="async" />
+              <div class="quick-actions">
+                <button type="button" class="qa-btn wishlist" aria-pressed="false"
+                  aria-label="Add Boys Kabli Suit to wishlist"><i class="fa-regular fa-heart"
+                    aria-hidden="true"></i></button>
+                <button type="button" class="qa-btn quickview" aria-label="Quick view Boys Kabli Suit"><i
+                    class="fa-regular fa-eye" aria-hidden="true"></i></button>
+                <button type="button" class="qa-btn compare" aria-label="Compare Boys Kabli Suit"><i
+                    class="fa-solid fa-code-compare" aria-hidden="true"></i></button>
+              </div>
+              <button class="add-cart-button" type="button"><i class="fa-solid fa-bag-shopping" aria-hidden="true"></i>
+                Add to cart<span class="visually-hidden"> — Boys Kabli Suit</span></button>
+            </div>
+            <div class="product-info">
+              <div class="product-meta">
+                <span class="meta-cat">Men</span>
+              </div>
+              <h3><a href="#">Boys Kabli Suit</a></h3>
+              <div class="price">
+                <span class="price-now is-sale">Tk 1,673</span>
+                <span class="price-was">Tk 2,390</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="double-offer">
+      <div class="container-fluid">
+        <div class="split-banner-grid">
+          <a href="#" class="promo-tile">
+            <img
+              src="https://objectstorage.ap-singapore-1.oraclecloud.com/n/aximxvolvk6d/b/sailorbucket/o/uploads/all/wYf2oEOInCmb7vWRmA2wRw1QPaLTWE3vPo58nIzH.jpg"
+              alt="Women festive campaign" />
+          </a>
+          <a href="#" class="promo-tile">
+            <img
+              src="https://objectstorage.ap-singapore-1.oraclecloud.com/n/aximxvolvk6d/b/sailorbucket/o/uploads/all/VIQdcpagLPFy9yVwV4fDjgrX66l6K8rUEq66FytV.jpg"
+              alt="Men festive campaign" />
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="reviews" aria-labelledby="reviews-heading">
+      <div class="container-fluid">
+        <div class="reviews-head">
+          <span class="reviews-eyebrow">Loved by Shoppers</span>
+          <h2 id="reviews-heading">What Our Customers Say</h2>
+          <p class="reviews-aggregate">
+            <span class="reviews-stars" aria-hidden="true">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+                class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </span>
+            <strong>4.9/5</strong> from 1,200+ verified reviews
+          </p>
+        </div>
+
+        <div class="reviews-grid">
+          <article class="review-card">
+            <div class="review-stars" role="img" aria-label="Rated 5 out of 5">
+              <i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i
+                class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i
+                class="fa-solid fa-star" aria-hidden="true"></i>
+            </div>
+            <blockquote class="review-quote">The kurti fabric is so soft and the stitching is premium — exactly like the
+              photos. Got compliments all Eid!</blockquote>
+            <footer class="review-author">
+              <span class="review-avatar" aria-hidden="true">T</span>
+              <span class="review-id">
+                <span class="review-name">Tasnim Akter</span>
+                <span class="review-tag"><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Verified
+                  Buyer</span>
+              </span>
+            </footer>
+          </article>
+
+          <article class="review-card">
+            <div class="review-stars" role="img" aria-label="Rated 5 out of 5">
+              <i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i
+                class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i
+                class="fa-solid fa-star" aria-hidden="true"></i>
+            </div>
+            <blockquote class="review-quote">Ordered a panjabi for the wedding season. Perfect fit, rich colour, and it
+              arrived in just two days. Highly recommend.</blockquote>
+            <footer class="review-author">
+              <span class="review-avatar" aria-hidden="true">R</span>
+              <span class="review-id">
+                <span class="review-name">Rakibul Hasan</span>
+                <span class="review-tag"><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Verified
+                  Buyer</span>
+              </span>
+            </footer>
+          </article>
+
+          <article class="review-card">
+            <div class="review-stars" role="img" aria-label="Rated 5 out of 5">
+              <i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i
+                class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i
+                class="fa-solid fa-star" aria-hidden="true"></i>
+            </div>
+            <blockquote class="review-quote">Beautiful saree with neat finishing and the colour stayed bright after
+              washing. Haya BD is now my go-to.</blockquote>
+            <footer class="review-author">
+              <span class="review-avatar" aria-hidden="true">S</span>
+              <span class="review-id">
+                <span class="review-name">Sadia Islam</span>
+                <span class="review-tag"><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Verified
+                  Buyer</span>
+              </span>
+            </footer>
+          </article>
+
+          <article class="review-card">
+            <div class="review-stars" role="img" aria-label="Rated 5 out of 5">
+              <i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i
+                class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i
+                class="fa-solid fa-star" aria-hidden="true"></i>
+            </div>
+            <blockquote class="review-quote">Great quality casual shirts at a fair price. The sizing chart was accurate,
+              so it fit on the first try.</blockquote>
+            <footer class="review-author">
+              <span class="review-avatar" aria-hidden="true">M</span>
+              <span class="review-id">
+                <span class="review-name">Mahmudul Karim</span>
+                <span class="review-tag"><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Verified
+                  Buyer</span>
+              </span>
+            </footer>
+          </article>
+
+          <article class="review-card">
+            <div class="review-stars" role="img" aria-label="Rated 5 out of 5">
+              <i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i
+                class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i
+                class="fa-solid fa-star" aria-hidden="true"></i>
+            </div>
+            <blockquote class="review-quote">Lovely frock for my daughter — soft cotton, no rough edges, and the
+              delivery packaging was lovely too.</blockquote>
+            <footer class="review-author">
+              <span class="review-avatar" aria-hidden="true">N</span>
+              <span class="review-id">
+                <span class="review-name">Nusrat Jahan</span>
+                <span class="review-tag"><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Verified
+                  Buyer</span>
+              </span>
+            </footer>
+          </article>
+
+          <article class="review-card">
+            <div class="review-stars" role="img" aria-label="Rated 5 out of 5">
+              <i class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i
+                class="fa-solid fa-star" aria-hidden="true"></i><i class="fa-solid fa-star" aria-hidden="true"></i><i
+                class="fa-solid fa-star" aria-hidden="true"></i>
+            </div>
+            <blockquote class="review-quote">Smooth checkout, fast delivery, and the kabli suit feels far more expensive
+              than what I paid. Five stars.</blockquote>
+            <footer class="review-author">
+              <span class="review-avatar" aria-hidden="true">A</span>
+              <span class="review-id">
+                <span class="review-name">Arif Chowdhury</span>
+                <span class="review-tag"><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Verified
+                  Buyer</span>
+              </span>
+            </footer>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container-fluid footer-grid">
+      <div>
+        <h3>CONTACT INFO</h3>
+        <ul>
+          <li><a href="#">House 12, Road 6, Dhaka</a></li>
+          <li><a href="tel:+8809606666777">09606 666 777</a></li>
+          <li><a href="mailto:support@haya-bd.com">support@haya-bd.com</a></li>
+        </ul>
+        <div class="social-links">
+          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+      <div>
+        <h3>know us</h3>
+        <ul>
+          <li><a href="#">about us</a></li>
+          <li><a href="#">store locator</a></li>
+          <li><a href="#">career</a></li>
+          <li><a href="#">blog</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>shopping information</h3>
+        <ul>
+          <li><a href="#">privacy policy</a></li>
+          <li><a href="#">refund policy</a></li>
+          <li><a href="#">shipping policy</a></li>
+          <li><a href="#">terms and conditions</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>SERVICE INFORMATION</h3>
+        <ul>
+          <li><a href="#">my account</a></li>
+          <li><a href="#">order history</a></li>
+          <li><a href="#">wishlist</a></li>
+          <li><a href="#">track order</a></li>
+        </ul>
+      </div>
+      <div class="subscribe">
+        <h3>subscribe us</h3>
+        <p>Keep yourself updated with the latest Haya BD news, fashion updates and blogs.</p>
+        <form>
+          <input type="email" placeholder="Email address" aria-label="Email address" />
+          <button type="submit" aria-label="Subscribe"><i class="fa-solid fa-paper-plane"></i></button>
+        </form>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>Copyright &copy;2026 Haya BD. All rights reserved</p>
+      <p>system design &amp; developed by : Mediasoft Data Systems Ltd.</p>
+    </div>
+  </footer>
+
+  <nav class="mobile-bottom-nav" aria-label="Mobile quick navigation">
+    <a href="#" class="is-active" aria-current="page">
+      <span class="bn-icon"><i class="fa-solid fa-house" aria-hidden="true"></i></span>
+      <span class="bn-label">Home</span>
+    </a>
+    <button type="button" class="bottom-menu">
+      <span class="bn-icon"><i class="fa-solid fa-table-cells-large" aria-hidden="true"></i></span>
+      <span class="bn-label">Category</span>
+    </button>
+    <button type="button" class="bottom-search">
+      <span class="bn-icon"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></span>
+      <span class="bn-label">Search</span>
+    </button>
+    <a href="#">
+      <span class="bn-icon">
+        <i class="fa-regular fa-heart" aria-hidden="true"></i>
+        <span class="bn-badge" aria-hidden="true">0</span>
+      </span>
+      <span class="bn-label">Wishlist</span>
+    </a>
+    <a href="#">
+      <span class="bn-icon">
+        <i class="fa-solid fa-bag-shopping" aria-hidden="true"></i>
+        <span class="bn-badge" aria-hidden="true">0</span>
+      </span>
+      <span class="bn-label">Cart</span>
+    </a>
+  </nav>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
