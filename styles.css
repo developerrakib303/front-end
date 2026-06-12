@@ -3343,3 +3343,9 @@ body {
     gap: 8px;
   }
 }
+
+
+/* Ensure the hidden attribute always wins over component display rules */
+[hidden] {
+  display: none !important;
+}

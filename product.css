@@ -1,0 +1,1231 @@
+/* =====================================================================
+   PRODUCT.CSS — Single Product Page (PDP)
+   Lens B: PREMIUM EDITORIAL GALLERY
+   Depends on styles.css (tokens, header/footer, components). All PDP-only
+   rules are prefixed .pdp- to avoid clashing with the global stylesheet.
+   ===================================================================== */
+
+/* ---------- Page rhythm ---------- */
+.pdp {
+  padding-top: 26px;
+}
+
+.pdp-section {
+  padding-top: clamp(40px, 5vw, 72px);
+}
+
+/* ---------- Breadcrumb ---------- */
+.pdp-breadcrumb {
+  padding: 4px 0 0;
+}
+
+.pdp-breadcrumb ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  font-size: 12.5px;
+  letter-spacing: 0.02em;
+  color: var(--text-muted);
+}
+
+.pdp-breadcrumb li {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pdp-breadcrumb li + li::before {
+  content: "\f105"; /* chevron-right */
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.28);
+}
+
+.pdp-breadcrumb a {
+  color: var(--text-muted);
+  transition: color 0.2s ease;
+}
+
+.pdp-breadcrumb a:hover {
+  color: var(--gold);
+}
+
+.pdp-breadcrumb [aria-current="page"] {
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* =====================================================================
+   PRIMARY LAYOUT — gallery (left) + info panel (right)
+   ===================================================================== */
+.pdp-main {
+  margin-top: 26px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: clamp(28px, 3.4vw, 64px);
+  align-items: start;
+}
+
+/* =====================================================================
+   GALLERY — large editorial main image + vertical thumbnail rail
+   ===================================================================== */
+.pdp-gallery {
+  position: sticky;
+  top: 96px;
+  display: grid;
+  grid-template-columns: 92px minmax(0, 1fr);
+  gap: 18px;
+  align-items: start;
+}
+
+/* Thumbnail rail */
+.pdp-thumbs {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin: 0;
+  padding: 2px;
+  list-style: none;
+}
+
+.pdp-thumb {
+  position: relative;
+  width: 88px;
+  aspect-ratio: 3 / 4;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface-2);
+  cursor: pointer;
+  transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.pdp-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.pdp-thumb:hover {
+  border-color: rgba(200, 162, 74, 0.55);
+  transform: translateY(-2px);
+}
+
+.pdp-thumb:hover img {
+  transform: scale(1.06);
+}
+
+.pdp-thumb[aria-current="true"] {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 1px var(--gold), 0 10px 22px rgba(0, 0, 0, 0.45);
+}
+
+.pdp-thumb:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+/* Main stage */
+.pdp-stage {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface-2);
+  aspect-ratio: 3 / 4;
+  cursor: zoom-in;
+  isolation: isolate;
+}
+
+.pdp-stage-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform-origin: center center;
+  transition: opacity 0.35s ease, transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.pdp-stage.is-swapping .pdp-stage-img {
+  opacity: 0;
+}
+
+/* Hover-zoom: scale the image toward the cursor position */
+@media (hover: hover) and (pointer: fine) {
+  .pdp-stage.is-zooming .pdp-stage-img {
+    transform: scale(1.9);
+    transition: transform 0.12s ease-out;
+  }
+}
+
+.pdp-stage-badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 3;
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--gold);
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+.pdp-stage-hint {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 13px;
+  border-radius: 999px;
+  background: rgba(15, 15, 16, 0.72);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  border: 1px solid var(--hdr-line);
+  color: #ededed;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+.pdp-stage-hint i {
+  color: var(--gold);
+}
+
+.pdp-stage.is-zooming .pdp-stage-hint {
+  opacity: 0;
+}
+
+/* =====================================================================
+   INFO PANEL
+   ===================================================================== */
+.pdp-info {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  min-width: 0;
+}
+
+.pdp-eyebrow {
+  margin: 0;
+  color: var(--gold);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.pdp-title {
+  margin: 8px 0 0;
+  font-size: clamp(28px, 3.4vw, 42px);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: 0.005em;
+  color: var(--text);
+  text-transform: capitalize;
+}
+
+/* Rating row */
+.pdp-rating {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.pdp-stars {
+  display: inline-flex;
+  gap: 3px;
+  color: var(--gold);
+  font-size: 15px;
+}
+
+.pdp-stars i {
+  color: var(--gold);
+}
+
+.pdp-stars .is-empty {
+  color: rgba(200, 162, 74, 0.3);
+}
+
+.pdp-rating-link {
+  color: var(--text-muted);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: rgba(200, 162, 74, 0.4);
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
+}
+
+.pdp-rating-link:hover {
+  color: var(--gold);
+}
+
+.pdp-rating-sep {
+  color: rgba(255, 255, 255, 0.2);
+}
+
+/* Price block */
+.pdp-price {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 14px;
+  padding: 18px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.pdp-price-now {
+  color: var(--gold-bright);
+  font-size: clamp(26px, 3vw, 34px);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 0.01em;
+}
+
+.pdp-price-was {
+  color: var(--text-muted);
+  font-size: 18px;
+  font-weight: 600;
+  text-decoration: line-through;
+  text-decoration-thickness: 1px;
+}
+
+.pdp-price-save {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 11px;
+  border-radius: 999px;
+  background: rgba(200, 162, 74, 0.14);
+  border: 1px solid rgba(200, 162, 74, 0.4);
+  color: var(--gold-bright);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+.pdp-shortdesc {
+  margin: 0;
+  max-width: 56ch;
+  color: var(--text-muted);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* ---------- Option groups (color / size) ---------- */
+.pdp-option {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.pdp-option-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.pdp-option-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text);
+}
+
+.pdp-option-label .pdp-option-value {
+  margin-left: 6px;
+  color: var(--gold);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: none;
+}
+
+.pdp-sizeguide {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-muted);
+  font-size: 12.5px;
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: rgba(200, 162, 74, 0.4);
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
+}
+
+.pdp-sizeguide:hover {
+  color: var(--gold);
+}
+
+.pdp-sizeguide i {
+  color: var(--gold);
+  font-size: 12px;
+}
+
+/* Color swatches */
+.pdp-colors {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.pdp-color {
+  position: relative;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  border-radius: 50%;
+  background: var(--swatch, #ccc);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: inset 0 0 0 3px var(--surface);
+  cursor: pointer;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.pdp-color:hover {
+  transform: scale(1.07);
+}
+
+.pdp-color[aria-checked="true"] {
+  box-shadow: inset 0 0 0 3px var(--surface), 0 0 0 2px var(--gold);
+}
+
+.pdp-color[aria-checked="true"]::after {
+  content: "\f00c";
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  font-size: 13px;
+  color: var(--ink);
+  mix-blend-mode: difference;
+  filter: invert(1) grayscale(1) contrast(2);
+}
+
+.pdp-color:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+/* Size pills */
+.pdp-sizes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.pdp-size {
+  min-width: 52px;
+  height: 46px;
+  padding: 0 14px;
+  border-radius: var(--radius);
+  border: 1.5px solid var(--border);
+  background: var(--surface-2);
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  transition: border-color 0.18s ease, background 0.18s ease, color 0.18s ease, transform 0.12s ease;
+}
+
+.pdp-size:hover {
+  border-color: var(--gold);
+}
+
+.pdp-size:active {
+  transform: scale(0.97);
+}
+
+.pdp-size[aria-checked="true"] {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--ink);
+}
+
+.pdp-size:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+/* ---------- Purchase row: qty + cart + buy now + wishlist ---------- */
+.pdp-buy {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: 12px;
+}
+
+.pdp-qty {
+  display: inline-flex;
+  align-items: center;
+  height: 54px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface-2);
+  overflow: hidden;
+}
+
+.pdp-qty-btn {
+  width: 50px;
+  height: 100%;
+  border: 0;
+  background: transparent;
+  color: var(--text);
+  font-size: 15px;
+  transition: color 0.15s ease, background 0.15s ease;
+}
+
+.pdp-qty-btn:hover {
+  color: var(--gold);
+  background: rgba(200, 162, 74, 0.08);
+}
+
+.pdp-qty-btn:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: -2px;
+}
+
+.pdp-qty-input {
+  width: 48px;
+  height: 100%;
+  border: 0;
+  background: transparent;
+  color: var(--text);
+  text-align: center;
+  font-size: 15px;
+  font-weight: 700;
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+.pdp-qty-input::-webkit-outer-spin-button,
+.pdp-qty-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.pdp-qty-input:focus {
+  outline: none;
+}
+
+/* Buttons by brand pattern (gold bg + ink text; ink bg + gold text) */
+.pdp-add-cart {
+  flex: 1 1 220px;
+  min-height: 54px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 0 24px;
+  border: 0;
+  border-radius: var(--radius);
+  background: var(--gold);
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: background 0.2s ease, transform 0.12s ease;
+}
+
+.pdp-add-cart:hover {
+  background: var(--gold-bright);
+}
+
+.pdp-add-cart:active {
+  transform: scale(0.99);
+}
+
+.pdp-wishlist {
+  width: 54px;
+  height: 54px;
+  flex: 0 0 auto;
+  display: inline-grid;
+  place-items: center;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface-2);
+  color: var(--text);
+  font-size: 18px;
+  transition: border-color 0.18s ease, color 0.18s ease, background 0.18s ease;
+}
+
+.pdp-wishlist:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.pdp-wishlist[aria-pressed="true"] {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--ink);
+}
+
+.pdp-buynow {
+  flex: 1 1 100%;
+  min-height: 54px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: 1.5px solid var(--gold);
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--gold);
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.pdp-buynow:hover {
+  background: var(--gold);
+  color: var(--ink);
+}
+
+.pdp-add-cart:focus-visible,
+.pdp-buynow:focus-visible,
+.pdp-wishlist:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+/* ---------- Trust row ---------- */
+.pdp-trust {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  padding-top: 6px;
+}
+
+.pdp-trust li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  list-style: none;
+}
+
+.pdp-trust ul {
+  margin: 0;
+  padding: 0;
+}
+
+.pdp-trust i {
+  flex: 0 0 auto;
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(200, 162, 74, 0.12);
+  color: var(--gold);
+  font-size: 14px;
+}
+
+.pdp-trust span {
+  font-size: 12.5px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--text);
+}
+
+/* ---------- Meta list ---------- */
+.pdp-meta {
+  margin: 0;
+  padding: 18px 0 0;
+  border-top: 1px solid var(--border);
+  display: grid;
+  gap: 10px;
+}
+
+.pdp-meta div {
+  display: flex;
+  gap: 10px;
+  font-size: 13.5px;
+}
+
+.pdp-meta dt {
+  flex: 0 0 110px;
+  color: var(--text-muted);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.pdp-meta dd {
+  margin: 0;
+  color: var(--text);
+}
+
+.pdp-instock {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #6fcf97;
+  font-weight: 700;
+}
+
+.pdp-instock i {
+  font-size: 11px;
+}
+
+.pdp-tags {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.pdp-tag {
+  padding: 3px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(200, 162, 74, 0.3);
+  background: rgba(200, 162, 74, 0.08);
+  color: #e8d9b0;
+  font-size: 11.5px;
+  font-weight: 600;
+}
+
+/* =====================================================================
+   DETAIL TABS — Description / Additional Information / Reviews
+   ===================================================================== */
+.pdp-tabnav {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  margin: 0;
+  padding: 0 0 0;
+  border-bottom: 1px solid var(--border);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.pdp-tabnav::-webkit-scrollbar {
+  display: none;
+}
+
+.pdp-tab {
+  position: relative;
+  flex: 0 0 auto;
+  min-height: 52px;
+  padding: 0 0 14px;
+  border: 0;
+  background: none;
+  color: #b8b8b8;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: capitalize;
+  transition: color 0.2s ease;
+}
+
+.pdp-tab .pdp-tab-count {
+  margin-left: 4px;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.pdp-tab:hover {
+  color: var(--text);
+}
+
+.pdp-tab[aria-selected="true"] {
+  color: var(--gold);
+}
+
+.pdp-tab[aria-selected="true"]::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 2px;
+  background: var(--gold);
+}
+
+.pdp-tab:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.pdp-panels {
+  padding-top: 28px;
+}
+
+.pdp-panel {
+  max-width: 880px;
+  color: var(--text-muted);
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+.pdp-panel[hidden] {
+  display: none;
+}
+
+.pdp-panel h3 {
+  margin: 0 0 12px;
+  color: var(--text);
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.pdp-panel p {
+  margin: 0 0 16px;
+}
+
+.pdp-panel ul.pdp-feature-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 10px;
+}
+
+.pdp-feature-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: var(--text);
+  font-size: 14.5px;
+}
+
+.pdp-feature-list i {
+  margin-top: 3px;
+  color: var(--gold);
+  font-size: 13px;
+}
+
+/* Spec table */
+.pdp-spec {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.pdp-spec th,
+.pdp-spec td {
+  padding: 14px 18px;
+  text-align: left;
+  font-size: 14px;
+  border-bottom: 1px solid var(--border);
+}
+
+.pdp-spec tr:last-child th,
+.pdp-spec tr:last-child td {
+  border-bottom: 0;
+}
+
+.pdp-spec th {
+  width: 200px;
+  background: var(--surface);
+  color: var(--text-muted);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+.pdp-spec td {
+  background: var(--surface-2);
+  color: var(--text);
+}
+
+/* Reviews panel */
+.pdp-reviews-summary {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid var(--border);
+}
+
+.pdp-reviews-score {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.pdp-reviews-score strong {
+  color: var(--white);
+  font-size: 38px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.pdp-reviews-score span {
+  color: var(--text-muted);
+  font-size: 12.5px;
+}
+
+.pdp-reviews-list {
+  display: grid;
+  gap: 16px;
+}
+
+/* Compact review item — sits on the dark .review-card styling already
+   defined in styles.css, but we relax the flex/height for a list layout. */
+.pdp-panel .review-card {
+  gap: 12px;
+  padding: 22px 22px 20px;
+}
+
+.pdp-review-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.pdp-review-date {
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+/* =====================================================================
+   STICKY MOBILE ADD-TO-CART BAR
+   Sits ABOVE the global .mobile-bottom-nav (z 999) — uses z 998 and an
+   offset so the two never overlap. Hidden until the main CTA scrolls out.
+   ===================================================================== */
+.pdp-stickybar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 998;
+  display: none;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  background: linear-gradient(180deg, #1a1a1c 0%, #121214 100%);
+  border-top: 1px solid var(--hdr-line);
+  box-shadow: 0 -10px 28px rgba(0, 0, 0, 0.5);
+  transform: translateY(110%);
+  transition: transform 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.pdp-stickybar.is-visible {
+  transform: translateY(0);
+}
+
+.pdp-stickybar-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.pdp-stickybar-name {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 42vw;
+}
+
+.pdp-stickybar-price {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.pdp-stickybar-now {
+  color: var(--gold-bright);
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.pdp-stickybar-was {
+  color: var(--text-muted);
+  font-size: 12px;
+  text-decoration: line-through;
+}
+
+.pdp-stickybar-cta {
+  flex: 1 1 auto;
+  min-height: 46px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 0;
+  border-radius: var(--radius);
+  background: var(--gold);
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.pdp-stickybar-cta:hover {
+  background: var(--gold-bright);
+}
+
+.pdp-stickybar-cta:focus-visible {
+  outline: 2px solid var(--gold-bright);
+  outline-offset: 2px;
+}
+
+/* =====================================================================
+   SIZE-GUIDE DIALOG (native <dialog>)
+   ===================================================================== */
+.pdp-sizeguide-dialog {
+  width: min(560px, 92vw);
+  padding: 0;
+  border: 1px solid var(--hdr-line);
+  border-radius: 14px;
+  background: var(--surface);
+  color: var(--text);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.65);
+}
+
+.pdp-sizeguide-dialog::backdrop {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.pdp-sizeguide-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  background: var(--ink);
+  border-bottom: 1px solid var(--hdr-line);
+  border-radius: 14px 14px 0 0;
+}
+
+.pdp-sizeguide-head h2 {
+  margin: 0;
+  color: var(--gold);
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.pdp-sizeguide-close {
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--hdr-line);
+  border-radius: 50%;
+  background: transparent;
+  color: #f1f1f1;
+  font-size: 16px;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.pdp-sizeguide-close:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.pdp-sizeguide-close:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+.pdp-sizeguide-body {
+  padding: 20px;
+}
+
+.pdp-sizeguide-body p {
+  margin: 0 0 14px;
+  color: var(--text-muted);
+  font-size: 13.5px;
+  line-height: 1.6;
+}
+
+.pdp-sizeguide-body table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.pdp-sizeguide-body th,
+.pdp-sizeguide-body td {
+  padding: 11px 12px;
+  text-align: center;
+  font-size: 13.5px;
+  border: 1px solid var(--border);
+}
+
+.pdp-sizeguide-body thead th {
+  background: var(--surface-2);
+  color: var(--gold);
+  font-weight: 700;
+}
+
+.pdp-sizeguide-body tbody th {
+  background: var(--surface-2);
+  color: var(--text);
+  font-weight: 700;
+}
+
+.pdp-sizeguide-body td {
+  background: transparent;
+  color: var(--text);
+}
+
+/* =====================================================================
+   RELATED PRODUCTS — reuses .product-grid / .product-card from styles.css
+   ===================================================================== */
+.pdp-related {
+  --card-min: 220px;
+  --card-radius: 10px;
+  --na-ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  padding-bottom: clamp(48px, 6vw, 80px);
+}
+
+/* =====================================================================
+   RESPONSIVE
+   ===================================================================== */
+@media (max-width: 991px) {
+  .pdp-main {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .pdp-gallery {
+    position: static;
+    top: auto;
+  }
+
+  .pdp-trust {
+    grid-template-columns: 1fr;
+  }
+
+  .pdp-trust li {
+    padding: 11px 14px;
+  }
+
+  /* Sticky bar offsets above the global mobile bottom nav (~60px + safe area) */
+  .pdp-stickybar {
+    display: flex;
+    bottom: calc(60px + env(safe-area-inset-bottom, 0px));
+  }
+
+  /* Give the page extra bottom room so the sticky bar + nav never cover content */
+  body.pdp-has-stickybar {
+    padding-bottom: calc(128px + env(safe-area-inset-bottom, 0px));
+  }
+}
+
+@media (max-width: 767px) {
+  /* Gallery: main on top, thumbnails reflow into a horizontal strip below */
+  .pdp-gallery {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .pdp-thumbs {
+    order: 2;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 10px;
+    overflow-x: auto;
+    padding: 2px 2px 6px;
+    scrollbar-width: none;
+  }
+
+  .pdp-thumbs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .pdp-thumb {
+    flex: 0 0 72px;
+    width: 72px;
+  }
+
+  .pdp-stage {
+    order: 1;
+    cursor: default;
+  }
+
+  .pdp-stage-hint {
+    display: none;
+  }
+
+  .pdp-buy {
+    gap: 10px;
+  }
+
+  .pdp-add-cart {
+    flex: 1 1 160px;
+  }
+
+  .pdp-meta dt {
+    flex-basis: 92px;
+  }
+
+  .pdp-spec th {
+    width: 130px;
+  }
+}
+
+@media (max-width: 460px) {
+  .pdp-title {
+    font-size: 25px;
+  }
+
+  .pdp-tabnav {
+    gap: 22px;
+  }
+
+  .pdp-tab {
+    font-size: 14px;
+  }
+
+  .pdp-stickybar-name {
+    display: none;
+  }
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .pdp-stage-img,
+  .pdp-thumb,
+  .pdp-thumb img,
+  .pdp-stickybar,
+  .pdp-stage-hint {
+    transition: none !important;
+  }
+
+  .pdp-stage.is-zooming .pdp-stage-img {
+    transform: none;
+  }
+
+  .pdp-stage {
+    cursor: default;
+  }
+}

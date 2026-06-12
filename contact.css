@@ -1,0 +1,597 @@
+/* =====================================================================
+   CONTACT.CSS — Contact Us page
+   Depends on styles.css (tokens, header/footer, shared components).
+   All page-only rules prefixed .contact- to avoid global clashes.
+   Theme: dark gold/black luxury. Mobile-first; columns stack on mobile.
+   ===================================================================== */
+
+/* ---------- Page rhythm ---------- */
+.contact {
+  padding: 26px 0 56px;
+}
+
+/* ---------- Breadcrumb: Home / Contact ---------- */
+.contact-breadcrumb {
+  padding: 4px 0 0;
+}
+
+.contact-breadcrumb ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  font-size: 12.5px;
+  letter-spacing: 0.02em;
+  color: var(--text-muted);
+}
+
+.contact-breadcrumb li {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* chevron separator between crumbs */
+.contact-breadcrumb li + li::before {
+  content: "\f105"; /* fa chevron-right */
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.28);
+}
+
+.contact-breadcrumb a {
+  color: var(--text-muted);
+  transition: color 0.2s ease;
+}
+
+.contact-breadcrumb a:hover {
+  color: var(--gold);
+}
+
+.contact-breadcrumb [aria-current="page"] {
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* ---------- Intro / heading ---------- */
+.contact-intro {
+  max-width: 640px;
+  margin: 22px 0 32px;
+}
+
+/* shared eyebrow style (UPPERCASE accent) reused in FAQ too */
+.contact-eyebrow {
+  display: inline-block;
+  margin-bottom: 10px;
+  color: var(--gold);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.contact-title {
+  margin: 0 0 12px;
+  font-size: clamp(28px, 4vw, 38px);
+  font-weight: 800;
+  line-height: 1.1;
+  color: var(--text);
+}
+
+.contact-lead {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* =====================================================================
+   TWO-COLUMN AREA — form (left) + info panel (right)
+   ===================================================================== */
+.contact-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.9fr);
+  gap: clamp(20px, 2.6vw, 40px);
+  align-items: start;
+}
+
+/* ---------- Shared card surface (form + info reuse this look) ---------- */
+.contact-form-card,
+.contact-info {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+.contact-form-card {
+  padding: clamp(22px, 3vw, 34px);
+}
+
+.contact-card-title {
+  margin: 0 0 6px;
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--text);
+}
+
+.contact-card-sub {
+  margin: 0 0 24px;
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* =====================================================================
+   FORM — dark fields matching the modal field pattern
+   ===================================================================== */
+.contact-form {
+  display: grid;
+  gap: 18px;
+}
+
+/* two fields side-by-side on wide screens, stack on small */
+.contact-field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.contact-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+/* label = small Title-Case light text */
+.contact-field label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+  text-transform: capitalize;
+}
+
+/* fields: 52px touch height, dark surface, subtle gold-tinted border */
+.contact-field input,
+.contact-field textarea {
+  width: 100%;
+  min-width: 0;
+  padding: 0 16px;
+  height: 52px;
+  border: 1px solid rgba(200, 162, 74, 0.22);
+  border-radius: var(--radius);
+  background: #1d1d1d;
+  color: #f2f2f2;
+  font-size: 15px;
+  line-height: 1.5;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-field textarea {
+  height: auto;
+  min-height: 140px;
+  padding: 14px 16px;
+  resize: vertical;
+}
+
+.contact-field input::placeholder,
+.contact-field textarea::placeholder {
+  color: #a3a3a3;
+  opacity: 1;
+}
+
+/* focus ring — gold-bright border + soft glow (matches modal fields) */
+.contact-field input:focus,
+.contact-field textarea:focus {
+  outline: none;
+  border-color: var(--gold-bright);
+  box-shadow: 0 0 0 3px rgba(227, 195, 90, 0.22);
+}
+
+/* validation-ready: invalid styling only after the field is touched */
+.contact-field input:user-invalid,
+.contact-field textarea:user-invalid {
+  border-color: #d98a8a;
+}
+
+.contact-field input:user-invalid:focus,
+.contact-field textarea:user-invalid:focus {
+  box-shadow: 0 0 0 3px rgba(217, 138, 138, 0.22);
+}
+
+/* ---------- Form footer: CTA + status message ---------- */
+.contact-form-foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  margin-top: 4px;
+}
+
+/* primary CTA — gold bg, ink text (per button pattern) */
+.contact-submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: 52px;
+  padding: 0 28px;
+  border: 0;
+  border-radius: var(--radius);
+  background: var(--gold);
+  color: var(--ink);
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  text-transform: capitalize;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.contact-submit:hover {
+  background: var(--gold-bright);
+  color: var(--ink);
+}
+
+.contact-submit:active {
+  transform: translateY(1px);
+}
+
+.contact-submit:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+/* success / feedback message */
+.contact-form-status {
+  margin: 0;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.contact-form-status.is-success {
+  color: var(--gold-bright);
+}
+
+.contact-form-status.is-error {
+  color: #e8a3a3;
+}
+
+.contact-form-status .contact-status-icon {
+  margin-right: 6px;
+}
+
+/* =====================================================================
+   RIGHT PANEL — info rows + social + map placeholder
+   ===================================================================== */
+.contact-info {
+  padding: clamp(22px, 3vw, 30px);
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.contact-info-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.contact-info-row {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: 14px;
+  align-items: start;
+}
+
+/* round icon chip (44px touch-friendly), gold accent */
+.contact-info-icon {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 1px solid var(--hdr-line);
+  background: rgba(200, 162, 74, 0.1);
+  color: var(--gold);
+  font-size: 17px;
+}
+
+.contact-info-body {
+  min-width: 0;
+}
+
+.contact-info-label {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.contact-info-text {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.contact-info-text a {
+  color: var(--text-muted);
+  transition: color 0.2s ease;
+}
+
+.contact-info-text a:hover {
+  color: var(--gold);
+}
+
+/* ---------- Social links ---------- */
+.contact-social {
+  padding-top: 4px;
+  border-top: 1px solid var(--border);
+}
+
+.contact-social-label {
+  display: block;
+  margin: 18px 0 12px;
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.contact-social-links {
+  display: flex;
+  gap: 10px;
+}
+
+.contact-social-links a {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--hdr-line);
+  border-radius: 50%;
+  color: var(--text);
+  font-size: 16px;
+  transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+}
+
+.contact-social-links a:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+  background: rgba(200, 162, 74, 0.08);
+}
+
+.contact-social-links a:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+/* =====================================================================
+   MAP PLACEHOLDER — responsive 16:9 box, iframe-ready, dark overlay
+   (No external map is loaded — this is a styled placeholder block.)
+   ===================================================================== */
+.contact-map {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  /* subtle "map" texture: grid lines + radial gold glow at the pin */
+  background-color: #131416;
+  background-image:
+    radial-gradient(520px 280px at 50% 42%, rgba(200, 162, 74, 0.12), transparent 70%),
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 100% 100%, 32px 32px, 32px 32px;
+}
+
+/* dark overlay + centred pin/label content */
+.contact-map-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: linear-gradient(180deg, rgba(15, 15, 16, 0.35), rgba(15, 15, 16, 0.65));
+  text-align: center;
+  padding: 16px;
+}
+
+.contact-map-pin {
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: var(--gold);
+  color: var(--ink);
+  font-size: 22px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.5), 0 0 0 8px rgba(200, 162, 74, 0.14);
+}
+
+.contact-map-label {
+  color: var(--text);
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.contact-map-place {
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+/* =====================================================================
+   FAQ ACCORDION
+   ===================================================================== */
+.contact-faq {
+  margin-top: clamp(40px, 5vw, 64px);
+}
+
+.contact-faq-head {
+  max-width: 640px;
+  margin: 0 auto 26px;
+  text-align: center;
+}
+
+.contact-faq-head .contact-eyebrow {
+  margin-bottom: 10px;
+}
+
+.contact-faq-title {
+  margin: 0;
+  font-size: clamp(24px, 3.4vw, 30px);
+  font-weight: 800;
+  line-height: 1.1;
+  color: var(--text);
+}
+
+.contact-accordion {
+  max-width: 860px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.contact-acc-item {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  transition: border-color 0.25s ease;
+}
+
+.contact-acc-item.is-open {
+  border-color: rgba(200, 162, 74, 0.45);
+}
+
+.contact-acc-heading {
+  margin: 0;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+.contact-acc-trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 20px;
+  border: 0;
+  background: transparent;
+  color: var(--text);
+  font-size: 15.5px;
+  font-weight: 700;
+  text-align: left;
+  text-transform: capitalize;
+  transition: color 0.2s ease;
+}
+
+.contact-acc-trigger:hover {
+  color: var(--gold);
+}
+
+.contact-acc-trigger:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: -2px;
+  border-radius: 10px;
+}
+
+.contact-acc-icon {
+  flex: 0 0 auto;
+  color: var(--gold);
+  font-size: 13px;
+  transition: transform 0.25s ease;
+}
+
+.contact-acc-trigger[aria-expanded="true"] .contact-acc-icon {
+  transform: rotate(180deg);
+}
+
+.contact-acc-panel {
+  padding: 0 20px 20px;
+}
+
+.contact-acc-panel p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* =====================================================================
+   RESPONSIVE — columns stack; field rows collapse on mobile
+   ===================================================================== */
+@media (max-width: 991px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .contact {
+    padding-top: 18px;
+  }
+
+  .contact-intro {
+    margin: 18px 0 24px;
+  }
+
+  /* stack paired form fields */
+  .contact-field-row {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .contact-form-foot {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .contact-submit {
+    width: 100%;
+  }
+
+  .contact-acc-trigger {
+    font-size: 14.5px;
+    padding: 16px;
+  }
+
+  .contact-acc-panel {
+    padding: 0 16px 18px;
+  }
+}
+
+/* =====================================================================
+   REDUCED MOTION
+   ===================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  .contact-submit,
+  .contact-acc-item,
+  .contact-acc-icon,
+  .contact-social-links a {
+    transition: none;
+  }
+
+  .contact-submit:active {
+    transform: none;
+  }
+}

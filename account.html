@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Account | Haya BD</title>
+  <meta name="description" content="Your Haya BD account dashboard — orders, addresses and details." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="account.css" />
+</head>
+
+<body>
+  <div class="preloader" aria-hidden="true">
+    <div class="preloader-logo">Haya BD</div>
+  </div>
+
+  <header class="site-header">
+    <div class="topbar">
+      <div class="container topbar-inner">
+        <p class="topbar-note"><i class="fa-solid fa-truck-fast" aria-hidden="true"></i> Free delivery on orders over Tk
+          2,000 &nbsp;</p>
+        <nav class="topbar-links" aria-label="Utility navigation">
+          <a href="login.html"><i class="fa-regular fa-user" aria-hidden="true"></i> log in</a>
+          <a href="#">about us</a>
+          <a href="#">blog</a>
+          <a href="#">track order</a>
+          <a href="#">compare (0)</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <header class="sticky-shop-header">
+    <div class="mainbar">
+      <div class="container mainbar-grid">
+        <button class="icon-button menu-toggle" type="button" aria-label="Open menu">
+          <i class="fa-solid fa-bars" aria-hidden="true"></i>
+        </button>
+
+        <a class="brand" href="index.html" aria-label="Haya BD home">
+          <span class="brand-word">HAYA</span>
+          <span class="brand-mark" aria-hidden="true"></span>
+        </a>
+
+        <form class="search-form" role="search">
+          <label class="search-field">
+            <span class="search-field-icon"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></span>
+            <input type="search" placeholder="Search products, brands and categories..." aria-label="Search products" />
+          </label>
+          <label class="category-field">
+            <span class="visually-hidden">Choose category</span>
+            <select aria-label="Choose category">
+              <option>categories</option>
+              <option>men</option>
+              <option>women</option>
+              <option>kids</option>
+              <option>accessories</option>
+            </select>
+          </label>
+          <button class="search-submit" type="submit" aria-label="Search">
+            <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+          </button>
+        </form>
+
+        <div class="header-actions">
+          <button class="icon-button mobile-search-toggle" type="button" aria-label="Open search">
+            <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+          </button>
+
+          <a class="support" href="tel:+8809606666777" aria-label="Call us now 09606 666 777">
+            <span class="support-icon"><i class="fa-solid fa-headset" aria-hidden="true"></i></span>
+            <span class="support-text">
+              <small>call us now</small>
+              <strong>09606 666 777</strong>
+            </span>
+          </a>
+
+          <a class="action-btn" href="account.html" aria-label="My account">
+            <i class="fa-regular fa-user" aria-hidden="true"></i>
+          </a>
+          <a class="action-btn" href="#" aria-label="Wishlist">
+            <i class="fa-regular fa-heart" aria-hidden="true"></i>
+            <span class="action-badge">0</span>
+          </a>
+          <a class="action-btn" href="cart.html" aria-label="Cart">
+            <i class="fa-solid fa-bag-shopping" aria-hidden="true"></i>
+            <span class="action-badge">0</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <nav class="category-nav" aria-label="Main categories">
+      <div class="container category-scroll">
+        <a href="shop.html">men</a>
+        <a href="shop.html">women</a>
+        <a href="shop.html">kids</a>
+        <a href="shop.html">ethnic</a>
+        <a href="shop.html">new arrival</a>
+        <a href="shop.html">fragrance</a>
+        <a href="shop.html">accessories</a>
+        <a href="shop.html" class="cat-sale">sale</a>
+      </div>
+    </nav>
+  </header>
+
+  <aside class="mobile-drawer" aria-hidden="true">
+    <div class="drawer-panel">
+      <div class="drawer-head">
+        <span class="brand-word">HAYA</span>
+        <button class="icon-button drawer-close" type="button" aria-label="Close menu">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <nav aria-label="Mobile menu">
+        <a href="#">About Us</a>
+        <a href="#">Blog</a>
+        <button class="drawer-accordion" type="button">
+          Men <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="drawer-links">
+          <a href="#">Casual Shirt</a>
+          <a href="#">Panjabi</a>
+          <a href="#">T-Shirt</a>
+        </div>
+        <button class="drawer-accordion" type="button">
+          Women <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="drawer-links">
+          <a href="#">Kurti</a>
+          <a href="#">Saree</a>
+          <a href="#">Tops</a>
+        </div>
+        <button class="drawer-accordion" type="button">
+          Kids <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="drawer-links">
+          <a href="#">Boys</a>
+          <a href="#">Girls</a>
+          <a href="#">Newborn</a>
+        </div>
+      </nav>
+    </div>
+  </aside>
+
+  <div class="search-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Search box">
+    <div class="search-dialog">
+      <div class="dialog-head">
+        <h2>Search Our Store</h2>
+        <button class="icon-button search-close" type="button" aria-label="Close search">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <form class="modal-search-form">
+        <label class="modal-field">
+          <span><i class="fa-solid fa-magnifying-glass"></i></span>
+          <input type="search" placeholder="Search products, categories..." aria-label="Search products" />
+        </label>
+        <div class="search-suggest" aria-label="Popular searches">
+          <span class="suggest-label">Popular</span>
+          <button type="button" class="suggest-chip">Panjabi</button>
+          <button type="button" class="suggest-chip">Saree</button>
+          <button type="button" class="suggest-chip">Kurti</button>
+          <button type="button" class="suggest-chip">Kids</button>
+          <button type="button" class="suggest-chip">Fragrance</button>
+        </div>
+        <label class="modal-field">
+          <span><i class="fa-solid fa-table-cells-large"></i></span>
+          <select aria-label="Choose category">
+            <option>categories</option>
+            <option>men</option>
+            <option>women</option>
+            <option>kids</option>
+          </select>
+        </label>
+        <button class="primary-button" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="quickview-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="qv-title">
+    <div class="quickview-dialog">
+      <div class="qv-head">
+        <span class="qv-head-label">Quick view</span>
+        <button class="icon-button quickview-close" type="button" aria-label="Close quick view">
+          <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+        </button>
+      </div>
+
+      <div class="qv-body">
+        <div class="qv-media">
+          <span class="qv-discount" hidden></span>
+          <img class="qv-image" src="" alt="" width="600" height="870" />
+        </div>
+
+        <div class="qv-info">
+          <p class="qv-cat" id="qv-cat"></p>
+          <h2 class="qv-title" id="qv-title"></h2>
+
+          <div class="qv-price">
+            <span class="qv-price-now" id="qv-price-now"></span>
+            <span class="qv-price-was" id="qv-price-was" hidden></span>
+          </div>
+
+          <p class="qv-desc">A signature Haya BD piece — soft, durable fabric with a tailored fit, finished for everyday
+            comfort and a premium look.</p>
+
+          <div class="qv-field qv-color-field" hidden>
+            <span class="qv-field-label" id="qv-color-label">Color</span>
+            <div class="qv-colors" role="group" aria-labelledby="qv-color-label"></div>
+          </div>
+
+          <div class="qv-field">
+            <span class="qv-field-label" id="qv-size-label">Size</span>
+            <div class="qv-sizes" role="radiogroup" aria-labelledby="qv-size-label">
+              <button type="button" class="qv-size" role="radio" aria-checked="false">S</button>
+              <button type="button" class="qv-size" role="radio" aria-checked="true">M</button>
+              <button type="button" class="qv-size" role="radio" aria-checked="false">L</button>
+              <button type="button" class="qv-size" role="radio" aria-checked="false">XL</button>
+            </div>
+          </div>
+
+          <div class="qv-field qv-qty-field">
+            <span class="qv-field-label" id="qv-qty-label">Quantity</span>
+            <div class="qv-qty" role="group" aria-labelledby="qv-qty-label">
+              <button type="button" class="qv-qty-btn qv-qty-minus" aria-label="Decrease quantity">
+                <i class="fa-solid fa-minus" aria-hidden="true"></i>
+              </button>
+              <span class="qv-qty-value" aria-live="polite">1</span>
+              <button type="button" class="qv-qty-btn qv-qty-plus" aria-label="Increase quantity">
+                <i class="fa-solid fa-plus" aria-hidden="true"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="qv-actions">
+            <button type="button" class="qv-add-cart">
+              <i class="fa-solid fa-bag-shopping" aria-hidden="true"></i> Add to cart
+            </button>
+            <button type="button" class="qv-wishlist" aria-pressed="false" aria-label="Add to wishlist">
+              <i class="fa-regular fa-heart" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main class="acc">
+  <div class="container-fluid">
+
+    <!-- ============ BREADCRUMB ============ -->
+    <nav class="acc-breadcrumb" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="index.html">Home</a></li>
+        <li><span aria-current="page">My Account</span></li>
+      </ol>
+    </nav>
+
+    <!-- ============ PAGE HEADER ============ -->
+    <header class="acc-pagehead">
+      <p class="acc-eyebrow">My Account</p>
+      <h1 class="acc-pagetitle">Dashboard</h1>
+    </header>
+
+    <!-- ============ SIDEBAR + CONTENT LAYOUT ============ -->
+    <div class="acc-layout">
+
+      <!-- ---------- LEFT: ACCOUNT NAV ---------- -->
+      <aside class="acc-sidebar" aria-label="Account navigation">
+        <!-- Avatar + name header -->
+        <div class="acc-userhead">
+          <span class="acc-avatar" aria-hidden="true">SR</span>
+          <span class="acc-userid">
+            <span class="acc-username">Sadia Rahman</span>
+            <span class="acc-useremail">support@lead-academy.org</span>
+          </span>
+        </div>
+
+        <!-- Mobile: a label that pairs with the scrollable tab bar -->
+        <p class="acc-nav-hint" id="acc-nav-label">Account Menu</p>
+
+        <nav class="acc-nav" aria-labelledby="acc-nav-label">
+          <ul role="list">
+            <li>
+              <a href="#dashboard" class="acc-nav-link is-active" aria-current="page" data-acc-tab="dashboard">
+                <i class="fa-solid fa-gauge-high" aria-hidden="true"></i>
+                <span>Dashboard</span>
+              </a>
+            </li>
+            <li>
+              <a href="#orders" class="acc-nav-link" data-acc-tab="orders">
+                <i class="fa-solid fa-box-open" aria-hidden="true"></i>
+                <span>Orders</span>
+                <span class="acc-nav-count" aria-label="12 orders">12</span>
+              </a>
+            </li>
+            <li>
+              <a href="#addresses" class="acc-nav-link" data-acc-tab="addresses">
+                <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+                <span>Addresses</span>
+              </a>
+            </li>
+            <li>
+              <a href="#account-details" class="acc-nav-link" data-acc-tab="account-details">
+                <i class="fa-regular fa-id-card" aria-hidden="true"></i>
+                <span>Account Details</span>
+              </a>
+            </li>
+            <li>
+              <a href="#wishlist" class="acc-nav-link" data-acc-tab="wishlist">
+                <i class="fa-regular fa-heart" aria-hidden="true"></i>
+                <span>Wishlist</span>
+                <span class="acc-nav-count" aria-label="5 items">5</span>
+              </a>
+            </li>
+            <li>
+              <a href="#logout" class="acc-nav-link acc-nav-logout" data-acc-tab="logout">
+                <i class="fa-solid fa-right-from-bracket" aria-hidden="true"></i>
+                <span>Logout</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+      <!-- ---------- RIGHT: DASHBOARD VIEW ---------- -->
+      <section class="acc-content" id="dashboard" aria-label="Dashboard">
+
+        <!-- Welcome line -->
+        <div class="acc-welcome">
+          <p class="acc-welcome-text">
+            Hello <strong>Sadia Rahman</strong> — welcome back to your Haya BD account.
+          </p>
+          <p class="acc-welcome-sub">
+            From your dashboard you can view your recent orders, manage your shipping addresses and update your account details.
+          </p>
+        </div>
+
+        <!-- Quick stat cards -->
+        <ul class="acc-stats" role="list">
+          <li class="acc-stat-card">
+            <span class="acc-stat-icon" aria-hidden="true"><i class="fa-solid fa-box-open"></i></span>
+            <span class="acc-stat-body">
+              <span class="acc-stat-value">12</span>
+              <span class="acc-stat-label">Total Orders</span>
+            </span>
+          </li>
+          <li class="acc-stat-card">
+            <span class="acc-stat-icon" aria-hidden="true"><i class="fa-regular fa-heart"></i></span>
+            <span class="acc-stat-body">
+              <span class="acc-stat-value">5</span>
+              <span class="acc-stat-label">Wishlist</span>
+            </span>
+          </li>
+          <li class="acc-stat-card">
+            <span class="acc-stat-icon" aria-hidden="true"><i class="fa-solid fa-location-dot"></i></span>
+            <span class="acc-stat-body">
+              <span class="acc-stat-value">2</span>
+              <span class="acc-stat-label">Addresses</span>
+            </span>
+          </li>
+          <li class="acc-stat-card">
+            <span class="acc-stat-icon" aria-hidden="true"><i class="fa-solid fa-coins"></i></span>
+            <span class="acc-stat-body">
+              <span class="acc-stat-value">340</span>
+              <span class="acc-stat-label">Reward Points</span>
+            </span>
+          </li>
+        </ul>
+
+        <!-- ============ RECENT ORDERS ============ -->
+        <div class="acc-panel">
+          <div class="acc-panel-head">
+            <h2 class="acc-panel-title">Recent Orders</h2>
+            <a class="acc-panel-link" href="#orders" data-acc-tab="orders">
+              View All Orders <i class="fa-solid fa-arrow-right-long" aria-hidden="true"></i>
+            </a>
+          </div>
+
+          <!-- Responsive table: real table on desktop, stacked cards on mobile -->
+          <table class="acc-orders">
+            <caption class="visually-hidden">Your recent orders with status and totals</caption>
+            <thead>
+              <tr>
+                <th scope="col">Order #</th>
+                <th scope="col">Date</th>
+                <th scope="col">Status</th>
+                <th scope="col">Total</th>
+                <th scope="col"><span class="visually-hidden">Actions</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row" data-label="Order #"><span class="acc-order-id">#HB-20489</span></th>
+                <td data-label="Date">02 Jun 2026</td>
+                <td data-label="Status">
+                  <span class="acc-pill acc-pill-processing">
+                    <i class="fa-solid fa-clock-rotate-left" aria-hidden="true"></i> Processing
+                  </span>
+                </td>
+                <td data-label="Total"><span class="acc-order-total">Tk 3,415</span> <span class="acc-order-qty">(3 items)</span></td>
+                <td data-label="" class="acc-order-action">
+                  <a class="acc-view-btn" href="#order-HB-20489" aria-label="View order #HB-20489">
+                    <i class="fa-regular fa-eye" aria-hidden="true"></i> View
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row" data-label="Order #"><span class="acc-order-id">#HB-20371</span></th>
+                <td data-label="Date">21 May 2026</td>
+                <td data-label="Status">
+                  <span class="acc-pill acc-pill-delivered">
+                    <i class="fa-solid fa-circle-check" aria-hidden="true"></i> Delivered
+                  </span>
+                </td>
+                <td data-label="Total"><span class="acc-order-total">Tk 1,665</span> <span class="acc-order-qty">(1 item)</span></td>
+                <td data-label="" class="acc-order-action">
+                  <a class="acc-view-btn" href="#order-HB-20371" aria-label="View order #HB-20371">
+                    <i class="fa-regular fa-eye" aria-hidden="true"></i> View
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row" data-label="Order #"><span class="acc-order-id">#HB-20255</span></th>
+                <td data-label="Date">08 May 2026</td>
+                <td data-label="Status">
+                  <span class="acc-pill acc-pill-delivered">
+                    <i class="fa-solid fa-circle-check" aria-hidden="true"></i> Delivered
+                  </span>
+                </td>
+                <td data-label="Total"><span class="acc-order-total">Tk 2,390</span> <span class="acc-order-qty">(1 item)</span></td>
+                <td data-label="" class="acc-order-action">
+                  <a class="acc-view-btn" href="#order-HB-20255" aria-label="View order #HB-20255">
+                    <i class="fa-regular fa-eye" aria-hidden="true"></i> View
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row" data-label="Order #"><span class="acc-order-id">#HB-20118</span></th>
+                <td data-label="Date">19 Apr 2026</td>
+                <td data-label="Status">
+                  <span class="acc-pill acc-pill-cancelled">
+                    <i class="fa-solid fa-circle-xmark" aria-hidden="true"></i> Cancelled
+                  </span>
+                </td>
+                <td data-label="Total"><span class="acc-order-total">Tk 1,450</span> <span class="acc-order-qty">(2 items)</span></td>
+                <td data-label="" class="acc-order-action">
+                  <a class="acc-view-btn" href="#order-HB-20118" aria-label="View order #HB-20118">
+                    <i class="fa-regular fa-eye" aria-hidden="true"></i> View
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- ============ DEFAULT SHIPPING ADDRESS ============ -->
+        <div class="acc-panel">
+          <div class="acc-panel-head">
+            <h2 class="acc-panel-title">Default Shipping Address</h2>
+            <a class="acc-panel-link" href="#addresses" data-acc-tab="addresses">
+              Manage Addresses <i class="fa-solid fa-arrow-right-long" aria-hidden="true"></i>
+            </a>
+          </div>
+
+          <article class="acc-address-card">
+            <span class="acc-address-tag">Default</span>
+            <address class="acc-address-body">
+              <strong class="acc-address-name">Sadia Rahman</strong>
+              <span>House 12, Road 6, Block C</span>
+              <span>Banani, Dhaka 1213</span>
+              <span>Bangladesh</span>
+              <span class="acc-address-phone">
+                <i class="fa-solid fa-phone" aria-hidden="true"></i> 01710 123 456
+              </span>
+            </address>
+            <div class="acc-address-actions">
+              <a class="acc-btn-secondary" href="#edit-address">
+                <i class="fa-regular fa-pen-to-square" aria-hidden="true"></i> Edit
+              </a>
+            </div>
+          </article>
+        </div>
+
+      </section>
+    </div>
+  </div>
+</main>
+
+  <footer class="site-footer">
+    <div class="container-fluid footer-grid">
+      <div>
+        <h3>CONTACT INFO</h3>
+        <ul>
+          <li><a href="#">House 12, Road 6, Dhaka</a></li>
+          <li><a href="tel:+8809606666777">09606 666 777</a></li>
+          <li><a href="mailto:support@haya-bd.com">support@haya-bd.com</a></li>
+        </ul>
+        <div class="social-links">
+          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+      <div>
+        <h3>know us</h3>
+        <ul>
+          <li><a href="#">about us</a></li>
+          <li><a href="#">store locator</a></li>
+          <li><a href="#">career</a></li>
+          <li><a href="#">blog</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>shopping information</h3>
+        <ul>
+          <li><a href="privacy.html">privacy policy</a></li>
+          <li><a href="#">refund policy</a></li>
+          <li><a href="#">shipping policy</a></li>
+          <li><a href="terms.html">terms and conditions</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>SERVICE INFORMATION</h3>
+        <ul>
+          <li><a href="account.html">my account</a></li>
+          <li><a href="account.html">order history</a></li>
+          <li><a href="#">wishlist</a></li>
+          <li><a href="#">track order</a></li>
+        </ul>
+      </div>
+      <div class="subscribe">
+        <h3>subscribe us</h3>
+        <p>Keep yourself updated with the latest Haya BD news, fashion updates and blogs.</p>
+        <form>
+          <input type="email" placeholder="Email address" aria-label="Email address" />
+          <button type="submit" aria-label="Subscribe"><i class="fa-solid fa-paper-plane"></i></button>
+        </form>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>Copyright &copy;2026 Haya BD. All rights reserved</p>
+      <p>system design &amp; developed by : Mediasoft Data Systems Ltd.</p>
+    </div>
+  </footer>
+
+  <nav class="mobile-bottom-nav" aria-label="Mobile quick navigation">
+    <a href="index.html">
+      <span class="bn-icon"><i class="fa-solid fa-house" aria-hidden="true"></i></span>
+      <span class="bn-label">Home</span>
+    </a>
+    <button type="button" class="bottom-menu">
+      <span class="bn-icon"><i class="fa-solid fa-table-cells-large" aria-hidden="true"></i></span>
+      <span class="bn-label">Category</span>
+    </button>
+    <button type="button" class="bottom-search">
+      <span class="bn-icon"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></span>
+      <span class="bn-label">Search</span>
+    </button>
+    <a href="#">
+      <span class="bn-icon">
+        <i class="fa-regular fa-heart" aria-hidden="true"></i>
+        <span class="bn-badge" aria-hidden="true">0</span>
+      </span>
+      <span class="bn-label">Wishlist</span>
+    </a>
+    <a href="cart.html">
+      <span class="bn-icon">
+        <i class="fa-solid fa-bag-shopping" aria-hidden="true"></i>
+        <span class="bn-badge" aria-hidden="true">0</span>
+      </span>
+      <span class="bn-label">Cart</span>
+    </a>
+  </nav>
+
+  <script src="script.js"></script>
+  <script src="account.js"></script>
+</body>
+
+</html>

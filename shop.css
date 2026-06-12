@@ -1,0 +1,943 @@
+/* =====================================================================
+   SHOP / PRODUCT ARCHIVE — page-specific styles (prefix: shop-)
+   Reuses shared theme tokens + .container-fluid, .product-grid,
+   .product-card system from styles.css. Dark gold/black, AA, mobile-first.
+   ===================================================================== */
+
+/* ---- Page shell -------------------------------------------------- */
+.shop-page {
+  padding: 28px 0 56px;
+}
+
+/* ---- Breadcrumb + page head ------------------------------------- */
+.shop-breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+  font-size: 12.5px;
+  color: var(--text-muted);
+}
+
+.shop-breadcrumb a {
+  color: var(--text-muted);
+  transition: color 0.2s ease;
+}
+
+.shop-breadcrumb a:hover {
+  color: var(--gold);
+}
+
+.shop-breadcrumb .sep {
+  color: rgba(255, 255, 255, 0.25);
+  font-size: 10px;
+}
+
+.shop-breadcrumb [aria-current="page"] {
+  color: var(--gold);
+  font-weight: 600;
+}
+
+.shop-head {
+  margin-bottom: 22px;
+}
+
+.shop-head h1 {
+  margin: 0 0 6px;
+  font-size: clamp(26px, 3vw, 34px);
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  line-height: 1.1;
+  color: var(--text);
+  text-transform: capitalize;
+}
+
+.shop-head .shop-subtitle {
+  margin: 0;
+  max-width: 64ch;
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* ---- Two-column layout: sidebar + content ----------------------- */
+.shop-layout {
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  gap: clamp(20px, 2.2vw, 34px);
+  align-items: start;
+}
+
+/* =====================================================================
+   FILTER SIDEBAR (sticky on desktop, off-canvas drawer on mobile/tablet)
+   ===================================================================== */
+.shop-sidebar {
+  position: sticky;
+  top: 96px; /* clears the sticky header */
+  align-self: start;
+  max-height: calc(100vh - 116px);
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(200, 162, 74, 0.4) transparent;
+}
+
+.shop-sidebar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.shop-sidebar::-webkit-scrollbar-thumb {
+  background: rgba(200, 162, 74, 0.35);
+  border-radius: 999px;
+}
+
+/* Drawer header — only visible when sidebar is an off-canvas drawer */
+.shop-filter-head {
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 18px;
+  background: var(--header-bg);
+  border-bottom: 1px solid var(--hdr-line);
+}
+
+.shop-filter-head h2 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--gold);
+  text-transform: capitalize;
+}
+
+.shop-filter-close {
+  width: 44px;
+  height: 44px;
+  display: inline-grid;
+  place-items: center;
+  border: 1px solid var(--hdr-line);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--text);
+  font-size: 17px;
+  transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+}
+
+.shop-filter-close:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+  background: rgba(200, 162, 74, 0.08);
+}
+
+/* Filter group cards */
+.shop-filter-group {
+  padding: 18px 18px 20px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+.shop-filter-group + .shop-filter-group {
+  margin-top: 14px;
+}
+
+.shop-filter-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 0 14px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text);
+}
+
+.shop-filter-title .shop-filter-icon {
+  color: var(--gold);
+  font-size: 12px;
+}
+
+/* ---- Categories list -------------------------------------------- */
+.shop-cat-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.shop-cat-list label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 40px;
+  padding: 0 8px;
+  border-radius: 6px;
+  color: var(--text);
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.18s ease, color 0.18s ease;
+}
+
+.shop-cat-list label:hover {
+  background: var(--surface-2);
+  color: var(--gold);
+}
+
+.shop-cat-list input {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
+  margin: 0;
+  accent-color: var(--gold);
+  cursor: pointer;
+}
+
+.shop-cat-list .shop-cat-count {
+  margin-left: auto;
+  color: var(--text-muted);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---- Size pills -------------------------------------------------- */
+.shop-pill-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.shop-pill {
+  min-width: 46px;
+  height: 40px;
+  padding: 0 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface-2);
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 600;
+  transition: border-color 0.15s ease, background 0.15s ease, color 0.15s ease;
+}
+
+.shop-pill:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.shop-pill[aria-pressed="true"] {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--ink);
+}
+
+/* ---- Color swatches --------------------------------------------- */
+.shop-swatch-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.shop-color {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+  background: var(--color, #ccc);
+  cursor: pointer;
+  transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.shop-color:hover {
+  transform: scale(1.1);
+  border-color: rgba(200, 162, 74, 0.6);
+}
+
+.shop-color[aria-pressed="true"] {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 2px var(--surface), 0 0 0 4px var(--gold);
+}
+
+.shop-color[aria-pressed="true"]::after {
+  content: "\f00c";
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  font-size: 11px;
+  color: var(--white); /* light check reads on dark swatches (black/teal/maroon/blue/olive) */
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.55);
+}
+
+/* white/light swatch needs the dark ink check instead */
+.shop-color.is-light[aria-pressed="true"]::after {
+  color: var(--ink);
+  text-shadow: 0 0 2px rgba(255, 255, 255, 0.6);
+}
+
+/* ---- Price range ------------------------------------------------- */
+.shop-price-inputs {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 10px;
+}
+
+.shop-price-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.shop-price-field label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: capitalize;
+  color: var(--text);
+}
+
+.shop-price-field .shop-input-wrap {
+  display: flex;
+  align-items: center;
+  height: 44px;
+  padding: 0 12px;
+  border: 1px solid rgba(200, 162, 74, 0.22);
+  border-radius: var(--radius);
+  background: #1d1d1d;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.shop-price-field .shop-input-wrap:focus-within {
+  border-color: var(--gold-bright);
+  box-shadow: 0 0 0 3px rgba(227, 195, 90, 0.22);
+}
+
+.shop-price-field .shop-prefix {
+  color: var(--text-muted);
+  font-size: 13px;
+  margin-right: 4px;
+}
+
+.shop-price-field input {
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: #f2f2f2;
+  font-size: 14px;
+}
+
+.shop-price-field input::placeholder {
+  color: #a3a3a3;
+}
+
+.shop-price-sep {
+  margin-top: 22px;
+  color: var(--text-muted);
+}
+
+/* Native dual-thumb-ish range (single visual track) */
+.shop-range {
+  margin-top: 16px;
+}
+
+.shop-range input[type="range"] {
+  width: 100%;
+  height: 4px;
+  margin: 8px 0;
+  -webkit-appearance: none;
+  appearance: none;
+  background: linear-gradient(
+    90deg,
+    var(--border) 0%,
+    var(--gold) 0%,
+    var(--gold) 100%,
+    var(--border) 100%
+  );
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.shop-range input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--gold);
+  border: 2px solid var(--bg);
+  box-shadow: 0 0 0 1px var(--gold);
+  cursor: pointer;
+}
+
+.shop-range input[type="range"]::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--gold);
+  border: 2px solid var(--bg);
+  cursor: pointer;
+}
+
+.shop-range input[type="range"]:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 4px;
+}
+
+.shop-range-value {
+  margin-top: 6px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.shop-range-value strong {
+  color: var(--gold);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---- Availability ------------------------------------------------ */
+.shop-avail-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.shop-avail-list label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 40px;
+  padding: 0 8px;
+  border-radius: 6px;
+  color: var(--text);
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.18s ease, color 0.18s ease;
+}
+
+.shop-avail-list label:hover {
+  background: var(--surface-2);
+  color: var(--gold);
+}
+
+.shop-avail-list input {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
+  margin: 0;
+  accent-color: var(--gold);
+  cursor: pointer;
+}
+
+.shop-avail-list .shop-cat-count {
+  margin-left: auto;
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+/* Sidebar apply/reset footer (drawer only, but harmless on desktop) */
+.shop-sidebar-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.shop-sidebar-actions .shop-btn {
+  flex: 1;
+}
+
+/* =====================================================================
+   TOOLBAR (result count, sort, filters button)
+   ===================================================================== */
+.shop-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+  padding: 14px 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.shop-result-count {
+  margin: 0;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.shop-result-count strong {
+  color: var(--text);
+  font-weight: 700;
+}
+
+.shop-toolbar-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Filters button (opens drawer) — secondary button pattern */
+.shop-filters-btn {
+  display: none; /* desktop: sidebar is visible, so hide */
+  align-items: center;
+  gap: 8px;
+  height: 44px;
+  padding: 0 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface-2);
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: capitalize;
+  transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+}
+
+.shop-filters-btn:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.shop-filters-btn .shop-filter-badge {
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  display: inline-grid;
+  place-items: center;
+  border-radius: 999px;
+  background: var(--gold);
+  color: var(--ink);
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+/* Sort select — dark field */
+.shop-sort {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.shop-sort label {
+  font-size: 13px;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.shop-select {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.shop-select select {
+  height: 44px;
+  padding: 0 38px 0 14px;
+  border: 1px solid rgba(200, 162, 74, 0.22);
+  border-radius: var(--radius);
+  background: #1d1d1d;
+  color: #f2f2f2;
+  font-size: 14px;
+  appearance: none;
+  cursor: pointer;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.shop-select select:focus-visible {
+  outline: 0;
+  border-color: var(--gold-bright);
+  box-shadow: 0 0 0 3px rgba(227, 195, 90, 0.22);
+}
+
+.shop-select select option {
+  background: #1d1d1d;
+  color: #f2f2f2;
+}
+
+.shop-select::after {
+  content: "\f078";
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--gold);
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  font-size: 11px;
+  pointer-events: none;
+}
+
+/* =====================================================================
+   ACTIVE FILTER CHIPS
+   ===================================================================== */
+.shop-active-filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.shop-active-filters .shop-active-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.shop-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 34px;
+  padding: 0 6px 0 12px;
+  border: 1px solid rgba(200, 162, 74, 0.3);
+  border-radius: 999px;
+  background: #241f12;
+  color: #e8d9b0;
+  font-size: 12.5px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.shop-chip .shop-chip-x {
+  width: 22px;
+  height: 22px;
+  display: inline-grid;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  color: #e8d9b0;
+  font-size: 10px;
+  transition: background 0.18s ease, color 0.18s ease;
+}
+
+.shop-chip .shop-chip-x:hover {
+  background: var(--gold);
+  color: var(--ink);
+}
+
+.shop-clear-all {
+  margin-left: 4px;
+  border: 0;
+  background: transparent;
+  color: var(--gold);
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.18s ease;
+}
+
+.shop-clear-all:hover {
+  color: var(--gold-bright);
+}
+
+/* =====================================================================
+   PRODUCT GRID — tighten card density for archive
+   ===================================================================== */
+.shop-grid {
+  --card-min: 240px;
+  --card-radius: 10px;
+  --na-ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+/* No-results state inside the grid column */
+.shop-empty {
+  padding: 56px 16px;
+  text-align: center;
+  color: var(--text-muted);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.shop-empty i {
+  margin-bottom: 14px;
+  font-size: 38px;
+  color: var(--border);
+}
+
+.shop-empty p {
+  margin: 0 0 16px;
+  font-size: 15px;
+}
+
+/* =====================================================================
+   PAGINATION
+   ===================================================================== */
+.shop-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 40px;
+}
+
+.shop-page-btn {
+  min-width: 44px;
+  height: 44px;
+  padding: 0 12px;
+  display: inline-grid;
+  place-items: center;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface-2);
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 600;
+  transition: border-color 0.18s ease, color 0.18s ease, background 0.18s ease;
+}
+
+.shop-page-btn:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.shop-page-btn[aria-current="page"] {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--ink);
+  font-weight: 800;
+}
+
+.shop-page-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.shop-page-btn:disabled:hover {
+  border-color: var(--border);
+  color: var(--text);
+}
+
+.shop-page-ellipsis {
+  min-width: 24px;
+  text-align: center;
+  color: var(--text-muted);
+}
+
+/* =====================================================================
+   SHARED LOCAL BUTTONS (apply / reset within drawer)
+   ===================================================================== */
+.shop-btn {
+  height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 18px;
+  border-radius: var(--radius);
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: capitalize;
+  transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+}
+
+.shop-btn-primary {
+  border: 0;
+  background: var(--gold);
+  color: var(--ink);
+}
+
+.shop-btn-primary:hover {
+  background: var(--gold-bright);
+  color: var(--ink);
+}
+
+.shop-btn-ghost {
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  color: var(--text);
+}
+
+.shop-btn-ghost:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+/* =====================================================================
+   FOCUS-VISIBLE RINGS (AA)
+   ===================================================================== */
+.shop-pill:focus-visible,
+.shop-color:focus-visible,
+.shop-chip-x:focus-visible,
+.shop-clear-all:focus-visible,
+.shop-filters-btn:focus-visible,
+.shop-filter-close:focus-visible,
+.shop-page-btn:focus-visible,
+.shop-btn:focus-visible,
+.shop-cat-list input:focus-visible,
+.shop-avail-list input:focus-visible,
+.shop-breadcrumb a:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* =====================================================================
+   OFF-CANVAS DRAWER (mobile/tablet) — mirrors .mobile-drawer pattern
+   ===================================================================== */
+.shop-drawer-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1490;
+  pointer-events: none;
+  opacity: 0;
+  background: rgba(0, 0, 0, 0.5);
+  transition: opacity 0.25s ease;
+}
+
+.shop-drawer-overlay.open {
+  pointer-events: auto;
+  opacity: 1;
+}
+
+/* =====================================================================
+   RESPONSIVE — sidebar becomes a slide-in drawer at <= 991px
+   ===================================================================== */
+@media (max-width: 991px) {
+  .shop-layout {
+    grid-template-columns: 1fr;
+  }
+
+  /* show toolbar Filters button */
+  .shop-filters-btn {
+    display: inline-flex;
+  }
+
+  /* Sidebar -> off-canvas drawer */
+  .shop-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1500;
+    width: min(360px, 88vw);
+    height: 100%;
+    max-height: none;
+    margin: 0;
+    padding: 0;
+    overflow-y: auto;
+    background: var(--bg);
+    border-right: 1px solid var(--hdr-line);
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.6);
+    transform: translateX(-105%);
+    transition: transform 0.3s ease;
+  }
+
+  .shop-sidebar.open {
+    transform: translateX(0);
+  }
+
+  .shop-filter-head {
+    display: flex;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+  }
+
+  .shop-filter-body {
+    padding: 16px;
+  }
+
+  /* Each group fills drawer width */
+  .shop-filter-group {
+    border-radius: 10px;
+  }
+
+  .shop-sidebar-actions {
+    position: sticky;
+    bottom: 0;
+    margin: 16px 0 0;
+    padding: 16px 0 4px;
+    background: linear-gradient(180deg, transparent, var(--bg) 30%);
+  }
+}
+
+/* On desktop the drawer head + sticky footer actions are hidden */
+@media (min-width: 992px) {
+  .shop-filter-head {
+    display: none;
+  }
+
+  .shop-filter-body {
+    display: block;
+  }
+
+  /* desktop: keep apply/reset but show only the reset utility role */
+  .shop-sidebar-actions {
+    margin-top: 16px;
+  }
+}
+
+@media (max-width: 767px) {
+  .shop-page {
+    padding: 20px 0 48px;
+  }
+
+  .shop-toolbar {
+    padding: 12px;
+  }
+
+  .shop-toolbar-controls {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .shop-sort label {
+    display: none; /* keep compact; select still labelled via aria */
+  }
+
+  .shop-grid {
+    --card-min: 46%;
+  }
+
+  .shop-result-count {
+    width: 100%;
+  }
+}
+
+@media (max-width: 460px) {
+  .shop-pagination {
+    gap: 6px;
+  }
+
+  .shop-page-btn {
+    min-width: 40px;
+    height: 40px;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .shop-sidebar,
+  .shop-drawer-overlay,
+  .shop-color,
+  .shop-pill,
+  .shop-chip-x {
+    transition: none !important;
+  }
+
+  .shop-color:hover {
+    transform: none;
+  }
+}
