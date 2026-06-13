@@ -100,68 +100,143 @@
    ===================================================================== */
 .co-msummary {
   border: 1px solid var(--border);
-  border-radius: 10px;
+  border-radius: 12px;
   background: var(--surface);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
   overflow: hidden;
 }
 
+/* Subtle gold edge once expanded */
+.co-msummary[open] {
+  border-color: var(--hdr-line);
+}
+
 .co-msummary > summary {
   display: flex;
   align-items: center;
-  gap: 10px;
-  min-height: 56px;
-  padding: 0 16px;
+  gap: 12px;
+  min-height: 64px;
+  padding: 12px 16px;
   list-style: none;
   cursor: pointer;
-  color: var(--text);
-  font-size: 14px;
-  font-weight: 700;
+  -webkit-tap-highlight-color: transparent;
+  transition: background 0.18s ease;
+}
+
+.co-msummary > summary:hover,
+.co-msummary > summary:active {
+  background: rgba(200, 162, 74, 0.05);
+}
+
+.co-msummary > summary:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: -2px;
 }
 
 .co-msummary > summary::-webkit-details-marker {
   display: none;
 }
 
-.co-msummary > summary .co-msummary-cart {
+/* Bag badge */
+.co-msummary-cart {
+  flex: 0 0 auto;
   display: inline-grid;
   place-items: center;
-  width: 30px;
-  height: 30px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
   background: rgba(200, 162, 74, 0.12);
+  border: 1px solid var(--hdr-line);
   color: var(--gold);
-  font-size: 13px;
+  font-size: 15px;
 }
 
-.co-msummary > summary .co-msummary-label {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
+/* Stacked label: title above, small hint below (intentional two lines,
+   instead of the whole bar wrapping under pressure) */
+.co-msummary-label {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
 }
 
-.co-msummary > summary .co-msummary-chev {
+.co-msummary-title {
+  color: var(--text);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.co-msummary-hint {
+  color: var(--text-muted);
+  font-size: 12px;
+  line-height: 1.25;
+}
+
+/* Swap the hint copy as the panel opens/closes */
+.co-msummary-hide {
+  display: none;
+}
+
+.co-msummary[open] .co-msummary-show {
+  display: none;
+}
+
+.co-msummary[open] .co-msummary-hide {
+  display: inline;
+}
+
+/* Right cluster: total + chevron, pinned right, never wraps */
+.co-msummary-meta {
+  flex: 0 0 auto;
   margin-left: auto;
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  color: var(--text-muted);
-  font-size: 12px;
-  transition: transform 0.2s ease;
+  gap: 12px;
 }
 
-.co-msummary > summary .co-msummary-total {
+.co-msummary-total {
   color: var(--gold-bright);
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 800;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
 }
 
-.co-msummary[open] > summary .co-msummary-chev i {
+.co-msummary-chev {
+  flex: 0 0 auto;
+  display: inline-grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-size: 11px;
+  transition: transform 0.25s ease, background 0.2s ease,
+    border-color 0.2s ease, color 0.2s ease;
+}
+
+/* Brighten the disclosure control on hover so it reads as the affordance */
+.co-msummary > summary:hover .co-msummary-chev {
+  border-color: var(--hdr-line);
+  color: var(--gold);
+}
+
+.co-msummary[open] .co-msummary-chev {
   transform: rotate(180deg);
+  background: rgba(200, 162, 74, 0.14);
+  border-color: var(--hdr-line);
+  color: var(--gold);
 }
 
 .co-msummary-body {
-  padding: 4px 16px 16px;
+  padding: 14px 16px 16px;
   border-top: 1px solid var(--border);
 }
 
@@ -1123,7 +1198,8 @@
   .co-radio-dot,
   .co-radio-dot::after,
   .co-placeorder,
-  .co-msummary > summary .co-msummary-chev i {
+  .co-msummary > summary,
+  .co-msummary-chev {
     transition: none !important;
   }
 

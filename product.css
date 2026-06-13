@@ -582,6 +582,11 @@
   color: var(--ink);
 }
 
+.pdp-wishlist-text {
+  /* Icon-only square on desktop; a labelled button appears on mobile */
+  display: none;
+}
+
 .pdp-buynow {
   flex: 1 1 100%;
   min-height: 54px;
@@ -1176,12 +1181,73 @@
     display: none;
   }
 
+  /* Purchase area becomes a tidy 2x2 grid: Qty + Add To Cart on top,
+     Wishlist + Buy It Now below, with the two columns aligned. A grid
+     (instead of flex-wrap) keeps the layout stable at every width — no
+     more orphaned wishlist button on its own row. */
   .pdp-buy {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    grid-template-areas:
+      "qty addcart"
+      "wishlist buynow";
     gap: 10px;
   }
 
+  /* Match the buy controls' scale + a more comfortable tap height */
+  .pdp-size {
+    height: 50px;
+    min-width: 56px;
+  }
+
+  .pdp-qty {
+    grid-area: qty;
+  }
+
+  /* Trim the stepper slightly so the CTA column keeps room on small phones */
+  .pdp-qty-btn {
+    width: 46px;
+  }
+
+  .pdp-qty-input {
+    width: 44px;
+  }
+
   .pdp-add-cart {
-    flex: 1 1 160px;
+    grid-area: addcart;
+    min-width: 0;
+    padding: 0 16px;
+    white-space: nowrap;
+  }
+
+  /* Wishlist becomes a labelled button, aligned in the column under Qty */
+  .pdp-wishlist {
+    grid-area: wishlist;
+    width: auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    font-size: 14px;
+    /* Tertiary action: quieter resting state than the gold-outline Buy It
+       Now beside it (still gets the crisp gold hover from the base rule) */
+    background: transparent;
+    border-color: rgba(255, 255, 255, 0.14);
+    color: var(--text-muted);
+  }
+
+  .pdp-wishlist-text {
+    display: inline;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .pdp-buynow {
+    grid-area: buynow;
+    min-width: 0;
+    white-space: nowrap;
   }
 
   .pdp-meta dt {
@@ -1190,6 +1256,41 @@
 
   .pdp-spec th {
     width: 130px;
+  }
+
+  /* "You May Also Like": on phones, turn this one grid into a 2-up
+     horizontal swipe slider (scoped to #pdp-related-grid so the New
+     Arrivals / Flash Sale grids elsewhere are untouched). */
+  #pdp-related-grid {
+    display: flex;
+    grid-template-columns: none;
+    gap: 12px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    /* vertical room so card focus rings aren't clipped by the scroller */
+    padding: 4px 0 8px;
+    scrollbar-width: none;
+  }
+
+  #pdp-related-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Two cards per view PLUS a ~16px peek of the next card, so it reads as a
+     swipeable slider rather than a static 2-up grid. */
+  #pdp-related-grid > .product-card {
+    flex: 0 0 calc(50% - 20px);
+    scroll-snap-align: start;
+  }
+
+  /* overflow-x:auto forces overflow-y to clip, so the desktop hover/focus
+     lift (translateY -6px) + large shadow would shear/clip on tap here.
+     Drop them on the slider; the base gold border-color cue still applies. */
+  #pdp-related-grid > .product-card:hover,
+  #pdp-related-grid > .product-card:focus-within {
+    transform: none;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
   }
 }
 
@@ -1211,6 +1312,23 @@
   }
 }
 
+@media (max-width: 360px) {
+  /* Tightest phones: stack the purchase controls into one full-width column */
+  .pdp-buy {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "qty"
+      "addcart"
+      "buynow"
+      "wishlist";
+  }
+
+  /* Keep the stepper compact (don't stretch it edge to edge) */
+  .pdp-qty {
+    justify-self: start;
+  }
+}
+
 /* ---------- Reduced motion ---------- */
 @media (prefers-reduced-motion: reduce) {
   .pdp-stage-img,
@@ -1222,6 +1340,17 @@
   }
 
   .pdp-stage.is-zooming .pdp-stage-img {
+    transform: none;
+  }
+
+  /* Drop the scale-on-press feedback on the purchase controls */
+  .pdp-size,
+  .pdp-add-cart {
+    transition: none !important;
+  }
+
+  .pdp-size:active,
+  .pdp-add-cart:active {
     transform: none;
   }
 

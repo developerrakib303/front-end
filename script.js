@@ -181,6 +181,7 @@ const naStatus = document.querySelector(".new-arrivals .result-count");
 const naEmpty = document.querySelector(".new-arrivals .empty-state");
 const tabIndicator = document.querySelector(".new-arrivals .tab-indicator");
 const naLabels = { all: "New Arrivals", men: "Men", women: "Women", kids: "Kids" };
+let naReclamp = null; // assigned by setupLoadMore() once the section is wired
 
 function moveIndicator(tab) {
   if (!tabIndicator || !tab) return;
@@ -204,6 +205,7 @@ function applyFilter(filter) {
   }
   if (naEmpty) naEmpty.hidden = shown !== 0;
   if (naGrid) naGrid.hidden = shown === 0;
+  if (naReclamp) naReclamp(true); // re-collapse to 2 rows on each filter change (mobile)
 }
 
 function selectTab(tab) {
@@ -287,6 +289,57 @@ if (tablist) {
 }
 
 applyFilter("all");
+
+/* ===== "Load More" (mobile: show 2 rows, reveal the rest) ===== */
+function setupLoadMore(section) {
+  if (!section) return null;
+  const grid = section.querySelector(".product-grid");
+  const wrap = section.querySelector(".load-more-wrap");
+  const btn = wrap && wrap.querySelector(".load-more-btn");
+  if (!grid || !btn) return null;
+
+  const LIMIT = 4; // 2 rows on the 2-column mobile grid
+  const mq = window.matchMedia("(max-width: 767px)");
+  let expanded = false;
+
+  function apply(reset) {
+    if (reset) expanded = false;
+    const cards = Array.prototype.slice.call(grid.querySelectorAll(".product-card"));
+    const visible = cards.filter((c) => !c.classList.contains("is-hidden"));
+    cards.forEach((c) => c.classList.remove("na-clamped"));
+    const clamp = mq.matches && !expanded;
+    if (clamp) {
+      visible.forEach((c, i) => {
+        if (i >= LIMIT) c.classList.add("na-clamped");
+      });
+    }
+    const remaining = visible.length - LIMIT;
+    const need = clamp && remaining > 0;
+    wrap.hidden = !need; // hide the whole wrap so no empty gap remains
+    const count = btn.querySelector(".load-more-count");
+    if (count) count.textContent = need ? "(" + remaining + ")" : "";
+  }
+
+  btn.addEventListener("click", () => {
+    expanded = true;
+    apply();
+    // Move focus to the first newly revealed product for keyboard users.
+    const visible = Array.prototype.slice
+      .call(grid.querySelectorAll(".product-card"))
+      .filter((c) => !c.classList.contains("is-hidden"));
+    const link = visible[LIMIT] && visible[LIMIT].querySelector("h3 a");
+    if (link) link.focus();
+  });
+
+  if (mq.addEventListener) mq.addEventListener("change", () => apply());
+  else window.addEventListener("resize", () => apply());
+
+  apply();
+  return apply;
+}
+
+naReclamp = setupLoadMore(document.querySelector(".new-arrivals"));
+setupLoadMore(document.querySelector(".flash-sale"));
 
 document.querySelectorAll("form").forEach((form) => {
   form.addEventListener("submit", (event) => {

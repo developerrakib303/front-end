@@ -290,9 +290,18 @@
         <!-- Collapsible mobile summary (shown on top, mobile only) -->
         <details class="co-msummary">
           <summary>
-            <span class="co-msummary-cart"><i class="fa-solid fa-bag-shopping" aria-hidden="true"></i></span>
-            <span class="co-msummary-label">Order Summary <span class="co-msummary-chev"><span>Tap to view</span><i class="fa-solid fa-chevron-down" aria-hidden="true"></i></span></span>
-            <span class="co-msummary-total">Tk 6,805</span>
+            <span class="co-msummary-cart" aria-hidden="true"><i class="fa-solid fa-bag-shopping"></i></span>
+            <span class="co-msummary-label">
+              <span class="co-msummary-title">Order Summary</span>
+              <span class="co-msummary-hint" aria-hidden="true">
+                <span class="co-msummary-show">Tap to view</span>
+                <span class="co-msummary-hide">Tap to hide</span>
+              </span>
+            </span>
+            <span class="co-msummary-meta">
+              <span class="co-msummary-total">Tk 6,805</span>
+              <span class="co-msummary-chev" aria-hidden="true"><i class="fa-solid fa-chevron-down"></i></span>
+            </span>
           </summary>
           <div class="co-msummary-body">
             <ul class="co-items">
@@ -330,6 +339,24 @@
                 <span class="co-item-price">Tk 1,440</span>
               </li>
             </ul>
+            <dl class="co-totals">
+              <div class="co-total-row">
+                <dt>Subtotal</dt>
+                <dd>Tk 6,745</dd>
+              </div>
+              <div class="co-total-row">
+                <dt>Shipping (Inside Dhaka)</dt>
+                <dd>Tk 60</dd>
+              </div>
+              <div class="co-total-row is-discount">
+                <dt>Discount</dt>
+                <dd>&minus; Tk 0</dd>
+              </div>
+              <div class="co-total-row co-total-grand">
+                <dt>Grand Total</dt>
+                <dd>Tk 6,805 <span class="co-grand-sub">VAT included</span></dd>
+              </div>
+            </dl>
           </div>
         </details>
 
